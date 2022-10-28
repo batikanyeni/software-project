@@ -1,0 +1,25 @@
+.form {
+  width: 90%;
+  max-width: 40rem;
+  padding: 3rem;
+  margin: 2rem auto;
+  margin-top: 5rem;
+  text-align: center;
+  background-color: #323b44;
+  border-radius: 10px;
+}
+.btn {
+  width: 50%;
+  background-color: inherit;
+  border-color: orangered;
+  color: white;
+}
+.btn:hover,
+.btn:active {
+  background-color: #f56734;
+  border-color: #f56734;
+}
+.label {
+  font-weight: bold;
+  color: white;
+}
