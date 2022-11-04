@@ -20,7 +20,6 @@
 .register-button:focus {
   outline: none;
 }
-
 .logout-button {
   font: inherit;
   border: 2px solid #ffd700;

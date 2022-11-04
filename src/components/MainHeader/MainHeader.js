@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import classes from './MainHeader.module.css';
 import Register from '../Pages/Register';
 import Image from 'react-bootstrap/Image';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -59,14 +60,22 @@ const MainHeader = () => {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/store">
-                Store
-              </Nav.Link>
+
               {isLoggedIn && (
                 <Nav.Link as={Link} to="/library">
                   Library
                 </Nav.Link>
               )}
+              <NavDropdown
+                title="Categories"
+                id="navbarScrollingDropdown"
+                className={classes['item-categories']}
+              >
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Scientific</NavDropdown.Item>
+                <NavDropdown.Item href="#action5">Adventure</NavDropdown.Item>
+                <NavDropdown.Item href="#action6">Horror</NavDropdown.Item>
+              </NavDropdown>
               {!isLoggedIn && (
                 <React.Fragment>
                   <Nav.Link as={Link} to="/login">

@@ -1,6 +1,8 @@
 import * as yup from 'yup';
 
-export const userSchema = yup.object().shape({
+const userSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
+
+export default userSchema;

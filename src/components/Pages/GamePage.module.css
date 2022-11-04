@@ -1,0 +1,25 @@
+.Gameimg {
+  align-items: center;
+  display: flex;
+}
+.Gameimg img {
+  width: 20%;
+}
+
+.GameSliderContainer img {
+  width: 25%;
+}
+.GameSliderContainer {
+  height: 50%;
+}
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  margin: 1rem;
+  width: 50%;
+}
+.gameinfo-container {
+  color: white;
+}

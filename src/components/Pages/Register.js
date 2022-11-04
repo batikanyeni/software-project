@@ -1,4 +1,4 @@
-import { userSchema } from '../Validations/RegisterValidation';
+import userSchema from '../Validations/RegisterValidation';
 import React, { useState } from 'react';
 import classes from './Register.module.css';
 import { useFormik } from 'formik';
@@ -13,7 +13,7 @@ const Register = (props) => {
       email: values.email,
       username: values.username,
       password: values.password,
-      password: values.confirmpassword,
+      confirmpassword: values.confirmpassword,
     };
     let isValid = await userSchema.isValid(formData);
 
@@ -75,7 +75,7 @@ const Register = (props) => {
               <Form.Control
                 onChange={handleChange}
                 values={values.confirmpassword}
-                type="confirm-password"
+                type="confirmpassword"
                 placeholder="Confirm Password"
                 isValid={touched.confirmpassword && !errors.confirmpassword}
               />
