@@ -33,7 +33,13 @@ const MainHeader = () => {
 
   return (
     <React.Fragment>
-      {show && <Register onShow={show} onConfirm={handleClose}></Register>}
+      {show && (
+        <Register
+          onShow={show}
+          setShow={setShow}
+          onConfirm={handleClose}
+        ></Register>
+      )}
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -96,7 +102,7 @@ const MainHeader = () => {
                 <React.Fragment>
                   <Nav.Link
                     as={Link}
-                    to="/wallet"
+                    to={`/wallet`}
                     className={classes['nav-link']}
                   >
                     <Image

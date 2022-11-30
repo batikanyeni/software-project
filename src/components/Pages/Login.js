@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import axios from 'axios';
 import classes from './Login.module.css';
 
 const Login = () => {
@@ -30,7 +30,17 @@ const Login = () => {
     let isValid = await userSchema.isValid(formData);
 
     if (isValid) {
-      dispatch(authActions.onLogIn());
+      axios
+        .post(`http://localhost:8080/login`, {
+          email: values.email,
+          password: values.password,
+        })
+        .then((res) => {
+          const token = res.data.jwtToken;
+          const userId = res.data.customerDto.customerId;
+          dispatch(authActions.onLogIn({ token: token, userId: userId }));
+        });
+
       routeChange();
     }
   };
@@ -44,7 +54,7 @@ const Login = () => {
       onSubmit: submitHandler,
       userSchema,
     });
-  console.log(errors);
+
   return (
     <React.Fragment>
       <Form onSubmit={handleSubmit} className={classes.form}>

@@ -1,0 +1,23 @@
+.main-footer {
+  text-align: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #808080, #807c07);
+}
+.about-container {
+  text-align: center;
+  width: 50%;
+}
+.social-icon {
+  width: 9%;
+  margin: 3%;
+  height: 5%;
+  align-items: center;
+}
+.contact-container {
+  width: 50%;
+  max-width: 40rem;
+  padding: 3rem;
+
+  text-align: center;
+  border-radius: 10px;
+}

@@ -19,7 +19,18 @@
 .button-container button {
   margin: 1rem;
   width: 50%;
+  height: 80%;
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: black;
 }
+.button-container button:hover,
+.button-container button:active {
+  color: black;
+  background-color: #ffd700;
+  border: #ffd700;
+}
+
 .gameinfo-container {
   color: white;
 }

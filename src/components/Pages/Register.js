@@ -1,17 +1,24 @@
 import userSchema from '../Validations/RegisterValidation';
 import React, { useState } from 'react';
-import classes from './Register.module.css';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = (props) => {
+  let navigate = useNavigate();
   const [confirmed, setConfirmed] = useState(false);
+  const routeChange = () => {
+    let path = `/login`;
+    navigate(path);
+  };
   const submitHandler = async (values) => {
     let formData = {
       email: values.email,
-      username: values.username,
+      name: values.name,
+      surname: values.surname,
       password: values.password,
       confirmpassword: values.confirmpassword,
     };
@@ -19,12 +26,22 @@ const Register = (props) => {
 
     if (isValid) {
       setConfirmed(true);
+      axios.post(`http://localhost:8080/customer`, {
+        mail: values.email,
+        name: values.name,
+        surname: values.surname,
+        password: values.password,
+        passwordMatch: values.confirmpassword,
+      });
+      routeChange();
+      props.setShow(false);
     }
   };
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {
       email: '',
-      username: '',
+      name: '',
+      surname: '',
       password: '',
       confirmpassword: '',
     },
@@ -49,14 +66,24 @@ const Register = (props) => {
                 isValid={touched.email && !errors.email}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="username">
-              <Form.Label>Username</Form.Label>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>name</Form.Label>
               <Form.Control
                 onChange={handleChange}
-                values={values.username}
-                type="username"
-                placeholder="Enter Your UserName"
-                isValid={touched.username && !errors.username}
+                values={values.name}
+                type="name"
+                placeholder="Enter Your Name"
+                isValid={touched.name && !errors.name}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="surname">
+              <Form.Label>surname</Form.Label>
+              <Form.Control
+                onChange={handleChange}
+                values={values.surname}
+                type="surname"
+                placeholder="Enter Your Surname"
+                isValid={touched.surname && !errors.surname}
               />
             </Form.Group>
 
@@ -75,7 +102,7 @@ const Register = (props) => {
               <Form.Control
                 onChange={handleChange}
                 values={values.confirmpassword}
-                type="confirmpassword"
+                type="password"
                 placeholder="Confirm Password"
                 isValid={touched.confirmpassword && !errors.confirmpassword}
               />

@@ -13,7 +13,6 @@ const HomePageCarousel = () => {
 
   return (
     <Carousel
-      fluid
       className={classes['home-carousel']}
       activeIndex={index}
       onSelect={handleSelect}
