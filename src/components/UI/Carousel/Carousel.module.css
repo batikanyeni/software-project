@@ -4,3 +4,6 @@
   object-fit: contain;
   margin-bottom: 2rem;
 }
+.home-carousel-container {
+  width: 90%;
+}

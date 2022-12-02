@@ -66,7 +66,7 @@ const Wallet = () => {
           <Button onClick={addAmount}>Add</Button>
         </Col>
         <Col>
-          <p>Your balance: {balance}</p>
+          <p>Your balance: {balance}$</p>
         </Col>
       </Row>
     </Container>

@@ -38,6 +38,7 @@ const Login = () => {
         .then((res) => {
           const token = res.data.jwtToken;
           const userId = res.data.customerDto.customerId;
+
           dispatch(authActions.onLogIn({ token: token, userId: userId }));
         });
 

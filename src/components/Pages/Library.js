@@ -21,6 +21,7 @@ const Library = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
+        console.log(res.data);
         setLibraryGames(res.data.buy);
         setLibraryId(res.data.libraryId);
       });
@@ -29,7 +30,16 @@ const Library = () => {
     <Container>
       <Row>
         {libraryGames?.map((e) => (
-          <Col md={4} key={e.buyId}></Col>
+          <Col md={4} key={e.buyId}>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={e.game.images?.[0].url} />
+              <Card.Body>
+                <Card.Title>{e.game.name}</Card.Title>
+                <Card.Text></Card.Text>
+                <Button variant="primary">Download</Button>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
       </Row>
     </Container>

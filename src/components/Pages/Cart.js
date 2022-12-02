@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
@@ -6,7 +6,8 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import classes from './Cart.module.css';
 import Container from 'react-bootstrap/Container';
-import { useSelector } from 'react-redux';
+import { walletActions } from '../store/wallet';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Cart = () => {
   const token = useSelector((state) => state.auth.token);
@@ -14,8 +15,10 @@ const Cart = () => {
   const balance = useSelector((state) => state.wallet.walletBalance);
   const firstUpdate = useRef(true);
   const [gameRemoved, setGameRemoved] = useState(false);
+  const dispatch = useDispatch();
   const [gameId, setGameId] = useState('');
   const [cart, setCart] = useState([]);
+  const totalAmount = useMemo(() => calculateTotal(cart), [cart]);
 
   useEffect(() => {
     axios
@@ -33,22 +36,25 @@ const Cart = () => {
       firstUpdate.current = false;
       return;
     }
-    axios
-      .delete(
-        `http://localhost:8080/gameInTheBasket`,
-        {
-          data: {
-            gameId: gameId,
-            customerId: userId,
+    const deleteCartItem = () => {
+      axios
+        .delete(
+          `http://localhost:8080/gameInTheBasket`,
+          {
+            data: {
+              gameId: gameId,
+              customerId: userId,
+            },
           },
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then(() => {
-        setGameRemoved(true);
-      });
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
+        .then(() => {
+          setGameRemoved(true);
+        });
+    };
+    deleteCartItem();
   }, [gameId, token, userId]);
 
   const buyGames = () => {
@@ -58,12 +64,18 @@ const Cart = () => {
       })
       .then(() => {
         setGameRemoved(true);
+        const newBalance = balance - totalAmount;
+        dispatch(walletActions.setWalletBalance({ walletBalance: newBalance }));
+      })
+      .catch((err) => {
+        console.log(err.response.data);
       });
   };
 
   return (
     <Container>
-      <p>{balance}</p>
+      <p>your balance:{balance}$</p>
+      <p>Cart total: {totalAmount}$</p>
       {cart.map((e) => (
         <Row key={e.gameId}>
           <Col>
@@ -91,6 +103,14 @@ const Cart = () => {
       </Row>
     </Container>
   );
+};
+
+const calculateTotal = (arr) => {
+  let result = 0;
+  arr.map((cartObject) => {
+    result += cartObject.price;
+  });
+  return result;
 };
 
 export default Cart;
