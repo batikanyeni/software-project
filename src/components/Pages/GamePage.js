@@ -65,7 +65,11 @@ const GamePage = () => {
 
   return (
     <React.Fragment>
-      <GamePlayerModal show={modalShow} onHide={() => setModalShow(false)} />
+      <GamePlayerModal
+        url={gameInfo.url}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       <Container>
         <Row>
           <Col md={8}>

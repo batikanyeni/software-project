@@ -74,7 +74,7 @@ const Cart = () => {
 
   return (
     <Container>
-      <p>your balance:{balance}$</p>
+      <div className={classes['div-container']}>your balance:{balance}$</div>
       <p>Cart total: {totalAmount}$</p>
       {cart.map((e) => (
         <Row key={e.gameId}>
@@ -85,7 +85,7 @@ const Cart = () => {
             <Image className={classes.image} src={e.images[0]?.url || null} />
           </Col>
           <Col>
-            <p>{`${e.price}$`}</p>
+            <p>price:{`${e.price}$`}</p>
           </Col>
           <Col>
             <Button

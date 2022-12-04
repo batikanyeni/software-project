@@ -12,10 +12,7 @@ const GamePlayerModal = (props) => {
     >
       <Modal.Header closeButton />
       <Modal.Body className={classes.body}>
-        <iframe
-          src="https://storage.googleapis.com/ballgame/ballgame/index.html"
-          className={classes['game-player']}
-        ></iframe>
+        <iframe src={props.url} className={classes['game-player']}></iframe>
       </Modal.Body>
     </Modal>
   );
