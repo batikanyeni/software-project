@@ -40,6 +40,9 @@ const Login = () => {
           const userId = res.data.customerDto.customerId;
 
           dispatch(authActions.onLogIn({ token: token, userId: userId }));
+        })
+        .catch((err) => {
+          console.log(err.response.data);
         });
 
       routeChange();
