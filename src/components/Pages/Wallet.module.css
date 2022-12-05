@@ -4,4 +4,122 @@
   padding: 3rem;
   margin: 2rem auto;
   text-align: center;
+  height: 100%;
+}
+
+.addBalance {
+  background-image: url(../../../public/assets/wallet1.png);
+  text-align: center;
+  padding: auto;
+  height: 40rem;
+  width: 30rem;
+  margin: auto;
+  background-size: 100% 100%;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.addBalance button {
+  margin-top: 2rem;
+  width: 5rem;
+}
+
+.yourBalance {
+  background-image: url(../../../public/assets/wallet2.png);
+  text-align: center;
+  padding: auto;
+
+  height: 40rem;
+  width: 30rem;
+  background-size: 100% 100%;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.yourBalance p {
+  font-size: 30px;
+  color: white;
+}
+
+.balance {
+  border: 5px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+  text-align: center;
+  padding: 3rem;
+  background-color: rgba(255, 215, 0, 0.1);
+
+  font: inherit;
+  border: 2px solid #ffd700;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.adding {
+  border: 5px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+  text-align: center;
+  padding: 3rem;
+  background-color: rgba(255, 215, 0, 0.1);
+
+  font: inherit;
+  border: 2px solid #ffd700;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.adding input {
+  width: 15rem;
+  height: 3rem;
+  border-radius: 10px;
+  border-color: black;
+}
+
+.adding button {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: 7rem;
+  background-color: white;
+  font: inherit;
+  border: 2px solid #ffd700;
+
+  color: black;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.deneme {
+  background-color: black;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+}
+
+.amount {
+  text-align: center;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: 10rem;
+  font: inherit;
+  border: 2px solid #ffd700;
+
+  color: black;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: white;
 }

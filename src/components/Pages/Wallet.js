@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import classes from './Wallet.module.css';
+import Footer from '../UI/Footer/Footer';
 import axios from 'axios';
 const Wallet = () => {
   const token = useSelector((state) => state.auth.token);
@@ -53,23 +55,37 @@ const Wallet = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <input
-            onChange={handleChange}
-            type="text"
-            id="enterBalance"
-            placeholder="add balance"
-            value={enteredAmount}
-          />
-          <Button onClick={addAmount}>Add</Button>
-        </Col>
-        <Col>
-          <p>Your balance: {balance}$</p>
-        </Col>
-      </Row>
-    </Container>
+    <div>
+      <Container className={classes['deneme']}>
+        <Row className={classes['walletPage']}>
+          <Col className={classes['yourBalance']}>
+            <div className={classes['balance']}>
+              <p>
+                Your Balance : <br></br>
+                <div className={classes['amount']}> {balance}$</div>
+              </p>
+            </div>
+          </Col>
+
+          <Col className={classes['addBalance']}>
+            <div className={classes['adding']}>
+              <input
+                onChange={handleChange}
+                type="text"
+                id="enterBalance"
+                placeholder=" Amount"
+                value={enteredAmount}
+              />
+              <br></br>
+              <Button onClick={addAmount} variant="warning">
+                ADD
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      <Footer />
+    </div>
   );
 };
 

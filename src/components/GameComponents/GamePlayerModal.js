@@ -6,9 +6,10 @@ const GamePlayerModal = (props) => {
   return (
     <Modal
       {...props}
-      size="lg"
+      size="xl"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className={classes.modal}
     >
       <Modal.Header closeButton />
       <Modal.Body className={classes.body}>
