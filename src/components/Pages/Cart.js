@@ -8,6 +8,7 @@ import classes from './Cart.module.css';
 import Container from 'react-bootstrap/Container';
 import { walletActions } from '../store/wallet';
 import { useSelector, useDispatch } from 'react-redux';
+import { Table } from 'react-bootstrap';
 
 const Cart = () => {
   const token = useSelector((state) => state.auth.token);
@@ -19,6 +20,7 @@ const Cart = () => {
   const [gameId, setGameId] = useState('');
   const [cart, setCart] = useState([]);
   const totalAmount = useMemo(() => calculateTotal(cart), [cart]);
+  const NewBalance = balance - totalAmount;
 
   useEffect(() => {
     axios
@@ -71,35 +73,71 @@ const Cart = () => {
         console.log(err.response.data);
       });
   };
-
   return (
-    <Container>
-      <div className={classes['div-container']}>your balance:{balance}$</div>
-      <p>Cart total: {totalAmount}$</p>
-      {cart.map((e) => (
-        <Row key={e.gameId}>
-          <Col>
-            <p>{e.name}</p>
-          </Col>
-          <Col>
-            <Image className={classes.image} src={e.images[0]?.url || null} />
-          </Col>
-          <Col>
-            <p>price:{`${e.price}$`}</p>
-          </Col>
-          <Col>
-            <Button
-              onClick={() => {
-                setGameId(e.gameId);
-              }}
-            >
-              [X]
-            </Button>
-          </Col>
-        </Row>
-      ))}
+    <Container className={classes['cart-maincontainer']}>
+      <Col md={{ span: 10, offset: 1 }}>
+        <Table striped bordered hover className={classes['table-product']}>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>
+                <h4>Product </h4>
+              </th>
+              <th>
+                <h4>Product Name</h4>
+              </th>
+              <th>
+                <h4>Price</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((e) => (
+              <tr key={e.gameId}>
+                <td className={classes['trash-td']}>
+                  <button
+                    onClick={() => {
+                      setGameId(e.gameId);
+                    }}
+                    className={classes['delete-button']}
+                  >
+                    <Image
+                      className={classes['trash-img']}
+                      src={process.env.PUBLIC_URL + '/assets/trash-png.png'}
+                    ></Image>
+                  </button>
+                </td>
+                <td className={classes['image-td']}>
+                  <Image
+                    className={classes.image}
+                    src={e.images[0]?.url || null}
+                  />
+                </td>
+                <td className={classes['text-td']}>
+                  <h4 className={classes['game-text']}>{e.name}</h4>
+                </td>
+                <td className={classes['text-td']}>
+                  <h4 className={classes['game-text']}>{e.price}$</h4>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Col>
       <Row>
-        <Button onClick={buyGames}>Buy</Button>
+        <Col md={8}></Col>
+        <Col md={2}>
+          <h4 className={classes['substraction-h41']}>Balance: {balance}</h4>
+
+          <h4 className={classes['substraction-h4']}>
+            - Total Amount: {totalAmount}
+          </h4>
+
+          <h4 className={classes['substraction-h41']}>
+            New Balance:{NewBalance}$
+          </h4>
+          <Button className={classes['Buy-Button']}>Buy</Button>
+        </Col>
       </Row>
     </Container>
   );

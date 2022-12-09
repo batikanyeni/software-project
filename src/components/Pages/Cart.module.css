@@ -1,7 +1,65 @@
-.image {
-  width: 10rem;
-  height: 8rem;
-}
 .div-container {
   color: red;
+}
+.cart-maincontainer {
+  color: black;
+  display: inline;
+}
+.delete-button {
+  border: none;
+  margin-top: 2rem;
+}
+.trash-img {
+  width: 75%;
+  margin-top: 3.5rem;
+
+  align-items: center;
+}
+.substraction-h4 {
+  text-align: right;
+
+  border-bottom: 4px solid black;
+}
+.substraction-h41 {
+  text-align: right;
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+.game-text {
+  margin-top: 6rem;
+  width: 100%;
+}
+.table-product {
+  width: 100%;
+  border-radius: 25px;
+  border-color: inherit;
+  background-color: #1e2128;
+}
+.table-product h4 {
+  color: white;
+}
+
+.trash-td {
+  align-items: center;
+  width: 5%;
+}
+.image-td {
+  width: 15%;
+}
+.Buy-Button {
+  width: 100%;
+  height: 100%;
+
+  color: black;
+}
+.text-td {
+  width: 15%;
+}
+.buy-container {
+  margin-left: 74%;
+}
+.body {
+  background-color: red;
 }

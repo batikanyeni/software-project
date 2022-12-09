@@ -13,6 +13,7 @@ import GamePlayerModal from '../GameComponents/GamePlayerModal';
 import axios from 'axios';
 
 const GamePage = () => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const token = useSelector((state) => state.auth.token);
   const [modalShow, setModalShow] = React.useState(false);
   const userId = useSelector((state) => state.auth.userId);
@@ -103,20 +104,24 @@ const GamePage = () => {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col>
-            <input
-              value={userComment}
-              onChange={handleComment}
-              placeholder="Add your comment"
-            ></input>
-          </Col>
-          <Col>
-            <Button onClick={sendComment}>Send Comment</Button>
-          </Col>
-        </Row>
-      </Container>
+      {isLoggedIn && (
+        <React.Fragment>
+          <Container>
+            <Row>
+              <Col>
+                <input
+                  value={userComment}
+                  onChange={handleComment}
+                  placeholder="Add your comment"
+                ></input>
+              </Col>
+              <Col>
+                <Button onClick={sendComment}>Send Comment</Button>
+              </Col>
+            </Row>
+          </Container>
+        </React.Fragment>
+      )}
       <Container>
         {gameInfo.comments?.map((e) => (
           <Row key={e.commentId}>

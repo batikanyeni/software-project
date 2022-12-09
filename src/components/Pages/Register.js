@@ -26,15 +26,21 @@ const Register = (props) => {
 
     if (isValid) {
       setConfirmed(true);
-      axios.post(`http://localhost:8080/customer`, {
-        mail: values.email,
-        name: values.name,
-        surname: values.surname,
-        password: values.password,
-        passwordMatch: values.confirmpassword,
-      });
-      routeChange();
-      props.setShow(false);
+      axios
+        .post(`http://localhost:8080/customer`, {
+          mail: values.email,
+          name: values.name,
+          surname: values.surname,
+          password: values.password,
+          passwordMatch: values.confirmpassword,
+        })
+        .then(() => {
+          props.setShow(false);
+          routeChange();
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
     }
   };
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
