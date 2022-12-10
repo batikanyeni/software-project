@@ -75,11 +75,19 @@ const Cart = () => {
   };
   return (
     <Container className={classes['cart-maincontainer']}>
-      <Col md={{ span: 10, offset: 1 }}>
-        <Table striped bordered hover className={classes['table-product']}>
+      <Col md={{ span: 9, offset: 1 }}>
+        <Table
+          striped
+          bordered
+          hover
+          size="md"
+          className={classes['table-product']}
+        >
           <thead>
             <tr>
-              <th>#</th>
+              <th>
+                <h4>Remove</h4>
+              </th>
               <th>
                 <h4>Product </h4>
               </th>
@@ -95,17 +103,14 @@ const Cart = () => {
             {cart.map((e) => (
               <tr key={e.gameId}>
                 <td className={classes['trash-td']}>
-                  <button
+                  <Image
+                    fluid
                     onClick={() => {
                       setGameId(e.gameId);
                     }}
-                    className={classes['delete-button']}
-                  >
-                    <Image
-                      className={classes['trash-img']}
-                      src={process.env.PUBLIC_URL + '/assets/trash-png.png'}
-                    ></Image>
-                  </button>
+                    className={classes['trash-img']}
+                    src={process.env.PUBLIC_URL + '/assets/remove.png'}
+                  ></Image>
                 </td>
                 <td className={classes['image-td']}>
                   <Image
@@ -126,17 +131,20 @@ const Cart = () => {
       </Col>
       <Row>
         <Col md={8}></Col>
-        <Col md={2}>
-          <h4 className={classes['substraction-h41']}>Balance: {balance}</h4>
+        <Col md={3}>
+          <Container fluid className={classes['subtraction-container']}>
+            <h4 className={classes['substraction-h41']}>Balance: {balance}</h4>
 
-          <h4 className={classes['substraction-h4']}>
-            - Total Amount: {totalAmount}
-          </h4>
-
-          <h4 className={classes['substraction-h41']}>
-            New Balance:{NewBalance}$
-          </h4>
-          <Button className={classes['Buy-Button']}>Buy</Button>
+            <h4 className={classes['substraction-h4']}>
+              -Total Amount: {totalAmount}
+            </h4>
+            <h4 className={classes['substraction-h41']}>
+              New Balance:{NewBalance}$
+            </h4>
+            <Button onClick={buyGames} className={classes['Buy-Button']}>
+              Buy
+            </Button>
+          </Container>
         </Col>
       </Row>
     </Container>

@@ -1,19 +1,24 @@
-.div-container {
-  color: red;
-}
 .cart-maincontainer {
-  color: black;
   display: inline;
 }
+
 .delete-button {
   border: none;
   margin-top: 2rem;
 }
 .trash-img {
-  width: 75%;
-  margin-top: 3.5rem;
-
-  align-items: center;
+  width: 50%;
+  margin-top: 1rem;
+  transform-origin: center;
+  transition: width 1s;
+}
+.trash-td {
+  min-width: 10%;
+  width: 10%;
+}
+.trash-img:hover {
+  cursor: pointer;
+  width: 60%;
 }
 .substraction-h4 {
   text-align: right;
@@ -27,13 +32,11 @@
   width: 100%;
   height: 100%;
 }
-.game-text {
-  margin-top: 6rem;
-  width: 100%;
-}
+
 .table-product {
   width: 100%;
   border-radius: 25px;
+  text-align: center;
   border-color: inherit;
   background-color: #1e2128;
 }
@@ -41,25 +44,29 @@
   color: white;
 }
 
-.trash-td {
-  align-items: center;
-  width: 5%;
-}
 .image-td {
   width: 15%;
 }
 .Buy-Button {
   width: 100%;
-  height: 100%;
+  height: 50%;
+  background: inherit;
+  border: 2px solid;
+  border-color: #ffd700;
+  font: inherit;
+  color: white;
+}
+.Buy-Button:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
 
-  color: black;
-}
-.text-td {
-  width: 15%;
-}
-.buy-container {
-  margin-left: 74%;
-}
-.body {
-  background-color: red;
+.subtraction-container {
+  color: white;
+  width: 100%;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  padding: 1rem;
+  background-color: #484f60;
+  border: 2px solid;
+  border-radius: 25px;
 }

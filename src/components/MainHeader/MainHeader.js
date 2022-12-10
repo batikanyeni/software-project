@@ -72,7 +72,7 @@ const MainHeader = () => {
                   Library
                 </Nav.Link>
               )}
-              <NavDropdown
+              {/*<NavDropdown
                 title="Categories"
                 id="navbarScrollingDropdown"
                 className={classes['item-categories']}
@@ -81,7 +81,7 @@ const MainHeader = () => {
                 <NavDropdown.Item href="#action4">Scientific</NavDropdown.Item>
                 <NavDropdown.Item href="#action5">Adventure</NavDropdown.Item>
                 <NavDropdown.Item href="#action6">Horror</NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown>*/}
               {!isLoggedIn && (
                 <React.Fragment>
                   <Nav.Link as={Link} to="/login">
