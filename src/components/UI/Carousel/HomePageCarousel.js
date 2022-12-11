@@ -18,7 +18,7 @@ const HomePageCarousel = (props) => {
         onSelect={handleSelect}
       >
         {props.gameList.slice(0, 3).map((e) => (
-          <Carousel.Item>
+          <Carousel.Item key={e.gameId}>
             <img
               className="d-block w-100"
               src={e.images[0]?.url}

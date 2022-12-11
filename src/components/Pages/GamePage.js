@@ -18,27 +18,83 @@ const GamePage = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const userId = useSelector((state) => state.auth.userId);
   const [commentId, setCommentId] = useState('');
+  const [disabled, setDisabled] = useState(false);
   const [gameInfo, setGameInfo] = useState([]);
   const [userComment, setUserComment] = useState('');
   let { gameId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/game/${gameId}`).then((response) => {
-      setGameInfo(response.data);
-    });
-  }, [gameId, commentId]);
+    axios
+      .get(`http://localhost:8080/game/${gameId}`)
+      .then((response) => {
+        setGameInfo(response.data);
+      })
+      .then(() => {
+        if (!isLoggedIn) {
+          setDisabled(true);
+        }
+      });
+  }, [gameId, commentId, isLoggedIn]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const getLibrary = () => {
+        axios
+          .get(`http://localhost:8080/library/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((res) => {
+            const checkLibrary = (arr) => {
+              arr.buy.map((e) => {
+                if (e.game?.gameId === parseInt(gameId)) {
+                  setDisabled(true);
+                }
+                return true;
+              });
+            };
+            checkLibrary(res.data);
+          });
+      };
+      getLibrary();
+    }
+  }, [userId, token, isLoggedIn, gameId]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const getCart = () => {
+        axios
+          .get(`http://localhost:8080/gameInTheBasket/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then((res) => {
+            const checkCart = (arr) => {
+              arr.map((e) => {
+                if (e.gameId === parseInt(gameId)) {
+                  setDisabled(true);
+                }
+                return true;
+              });
+            };
+            checkCart(res.data);
+          });
+      };
+      getCart();
+    }
+  }, [token, userId, isLoggedIn, gameId]);
 
   const addToCart = () => {
-    axios.post(
-      'http://localhost:8080/gameInTheBasket',
-      {
-        customerId: userId,
-        gameId: gameId,
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
+    axios
+      .post(
+        'http://localhost:8080/gameInTheBasket',
+        {
+          customerId: userId,
+          gameId: gameId,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then(setDisabled(true));
   };
 
   const handleComment = (event) => {
@@ -96,7 +152,9 @@ const GamePage = () => {
             </Row>
             <Row className={classes['button-container']}>
               <Container className={classes['button-container']}>
-                <Button onClick={addToCart}>Add to Cart</Button>
+                <Button disabled={disabled} onClick={addToCart}>
+                  Add to Cart
+                </Button>
 
                 <Button onClick={() => setModalShow(true)}>Play Demo</Button>
               </Container>

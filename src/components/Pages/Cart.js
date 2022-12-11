@@ -23,14 +23,17 @@ const Cart = () => {
   const NewBalance = balance - totalAmount;
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/gameInTheBasket/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        setCart(response.data);
-        setGameRemoved(false);
-      });
+    const getCart = () => {
+      axios
+        .get(`http://localhost:8080/gameInTheBasket/${userId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          setCart(response.data);
+          setGameRemoved(false);
+        });
+    };
+    getCart();
   }, [gameRemoved, token, userId]);
 
   useEffect(() => {
@@ -165,7 +168,7 @@ const Cart = () => {
 const calculateTotal = (arr) => {
   let result = 0;
   arr.map((cartObject) => {
-    result += cartObject.price;
+    return (result += cartObject.price);
   });
   return result;
 };

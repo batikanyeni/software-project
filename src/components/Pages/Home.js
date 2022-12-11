@@ -5,6 +5,7 @@ import HomePageCarousel from '../UI/Carousel/HomePageCarousel';
 import './Home.css';
 import PaymentSection from '../PaymentSection/PaymentSection';
 import HomeGames from '../GameComponents/HomeGames';
+import { Container } from 'react-bootstrap';
 
 const Home = () => {
   const [games, setGames] = useState([]);
@@ -21,7 +22,7 @@ const Home = () => {
       <PaymentSection />
       <br></br>
 
-      <div className="main">
+      <Container fluid className="main">
         <h1>
           Our Games
           <div className="roller">
@@ -38,7 +39,7 @@ const Home = () => {
             <br />
           </div>
         </h1>
-      </div>
+      </Container>
       <br></br>
       <HomeGames gameList={games} />
       <br></br>

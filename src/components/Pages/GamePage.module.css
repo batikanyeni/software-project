@@ -30,6 +30,14 @@
   background-color: #ffd700;
   border: #ffd700;
 }
+.button-container button:disabled,
+.button-container button:hover:disabled,
+.button-container button:active:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  color: #666666;
+  cursor: not-allowed;
+}
 
 .gameinfo-container {
   color: white;

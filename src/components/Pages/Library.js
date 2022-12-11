@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classes from './Library.module.css';
 
@@ -16,16 +15,18 @@ const Library = () => {
   const [libraryId, setLibraryId] = useState('');
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/library/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setLibraryGames(res.data.buy);
-        setLibraryId(res.data.libraryId);
-      });
-  }, []);
+    const getLibrary = () => {
+      axios
+        .get(`http://localhost:8080/library/${userId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          setLibraryGames(res.data.buy);
+          setLibraryId(res.data.libraryId);
+        });
+    };
+    getLibrary();
+  }, [token, userId]);
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Library = () => {
       <Row className={classes['header']}>
         <h1>LIBRARY</h1>
       </Row>
-      <Container className={classes['libraryContainer']}>
+      <Container key={libraryId} className={classes['libraryContainer']}>
         <Row>
           {libraryGames.length > 0 ? (
             libraryGames?.map((e) => (
