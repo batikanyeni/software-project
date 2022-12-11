@@ -70,3 +70,12 @@
   border: 2px solid;
   border-radius: 25px;
 }
+.no-items {
+  background-color: rgba(189, 69, 21, 0.608);
+  text-align: center;
+  font-weight: 400;
+  color: white;
+  padding-top: 1rem;
+  border-radius: 25px;
+  border: 2px solid red;
+}

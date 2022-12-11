@@ -7,40 +7,15 @@
   height: 100%;
 }
 
-.addBalance {
-  background-image: url(../../../public/assets/yellow-card.jpeg);
-  text-align: center;
-  padding: auto;
-  height: 40rem;
-  width: 30rem;
-  margin: auto;
-  background-size: 100% 100%;
-  border-radius: 50px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.addBalance button {
+.walletcontainer {
   margin-top: 2rem;
-  width: 5rem;
-}
-
-.yourBalance {
-  background-image: url(../../../public/assets/yellow-bag.jpeg);
-  text-align: center;
-  padding: auto;
-
-  height: 40rem;
-  width: 30rem;
-  background-size: 100% 100%;
+  margin-bottom: 2rem;
   border-radius: 50px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: black;
+  font-family: 'Lucida Console', 'Courier New', monospace;
 }
 
-.yourBalance p {
+.balance p {
   font-size: 30px;
   color: white;
 }
@@ -50,62 +25,15 @@
   margin-top: 5rem;
   margin-left: auto;
   margin-right: auto;
-  width: 30rem;
+  width: 80%;
   text-align: center;
-  padding: 3rem;
-  background-color: rgba(255, 215, 0, 0.1);
-
+  padding: 2rem;
+  background-color: rgba(72, 79, 96, 0.5);
   font: inherit;
-  border: 2px solid #ffd700;
+  border: 2px solid white;
   color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   font-size: 1rem;
-}
-
-.adding {
-  border: 5px;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30rem;
-  text-align: center;
-  padding: 3rem;
-  background-color: rgba(255, 215, 0, 0.1);
-
-  font: inherit;
-  border: 2px solid #ffd700;
-  color: white;
-  border-radius: 10px;
-  font-size: 1rem;
-}
-
-.adding input {
-  width: 15rem;
-  height: 3rem;
-  border-radius: 10px;
-  border-color: black;
-}
-
-.adding button {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-  width: 7rem;
-  background-color: white;
-  font: inherit;
-  border: 2px solid #ffd700;
-
-  color: black;
-  border-radius: 10px;
-  font-size: 1rem;
-}
-
-.deneme {
-  background-color: black;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 50px;
 }
 
 .amount {
@@ -113,13 +41,92 @@
   color: white;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
-  width: 10rem;
+  margin-top: 1rem;
+  width: 70%;
+  height: 3rem;
   font: inherit;
   border: 2px solid #ffd700;
-
   color: black;
   border-radius: 10px;
   font-size: 1.2rem;
   background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.adding {
+  border: 5px;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(72, 79, 96, 0.5);
+  font: inherit;
+  border: 2px solid white;
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.adding input {
+  width: 70%;
+  height: 3rem;
+  border-radius: 10px;
+  border-color: black;
+}
+
+.adding button {
+  width: 30%;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50%;
+  background: inherit;
+  border: 2px solid;
+  border-color: #ffd700;
+  font: inherit;
+  color: white;
+}
+
+.adding button:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.paymentimg {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.paymentimg img {
+  margin: auto;
+  padding: 3rem;
+  height: auto;
+  width: 70%;
+}
+
+.amountandadd {
+  margin: auto;
+}
+
+.cards {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+  background-color: black;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+}
+
+.addCard {
+  text-align: center;
+  color: white;
+}
+
+.myCards {
+  text-align: center;
+  color: white;
 }

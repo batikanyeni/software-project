@@ -5,7 +5,6 @@ import HomePageCarousel from '../UI/Carousel/HomePageCarousel';
 import './Home.css';
 import PaymentSection from '../PaymentSection/PaymentSection';
 import HomeGames from '../GameComponents/HomeGames';
-import GameCard from '../GameComponents/GameCard';
 
 const Home = () => {
   const [games, setGames] = useState([]);
@@ -18,14 +17,14 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <HomePageCarousel />
+      <HomePageCarousel gameList={games} />
       <PaymentSection />
       <br></br>
 
-      <div class="main-">
+      <div className="main">
         <h1>
           Our Games
-          <div class="roller">
+          <div className="roller">
             <span id="rolltext">
               Try It
               <br />

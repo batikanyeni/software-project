@@ -56,18 +56,24 @@ const Wallet = () => {
 
   return (
     <div>
-      <Container className={classes['deneme']}>
+      <Container className={classes['walletcontainer']}>
         <Row className={classes['walletPage']}>
-          <Col className={classes['yourBalance']}>
+          <Col md={5} className={classes['paymentimg']}>
+            <img
+              className="d-block w-100"
+              src={process.env.PUBLIC_URL + '/assets/paymentpage.png'}
+              alt="paymentimg"
+            />
+          </Col>
+
+          <Col md={6} className={classes['amountandadd']}>
             <div className={classes['balance']}>
               <p>
                 Your Balance : <br></br>
                 <div className={classes['amount']}> {balance}$</div>
               </p>
             </div>
-          </Col>
 
-          <Col className={classes['addBalance']}>
             <div className={classes['adding']}>
               <input
                 onChange={handleChange}
@@ -77,13 +83,12 @@ const Wallet = () => {
                 value={enteredAmount}
               />
               <br></br>
-              <Button onClick={addAmount} variant="warning">
-                ADD
-              </Button>
+              <Button onClick={addAmount}>ADD</Button>
             </div>
           </Col>
         </Row>
       </Container>
+
       <Footer />
     </div>
   );

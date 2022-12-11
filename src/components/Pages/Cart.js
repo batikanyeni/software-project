@@ -75,78 +75,89 @@ const Cart = () => {
   };
   return (
     <Container className={classes['cart-maincontainer']}>
-      <Col md={{ span: 9, offset: 1 }}>
-        <Table
-          striped
-          bordered
-          hover
-          size="md"
-          className={classes['table-product']}
-        >
-          <thead>
-            <tr>
-              <th>
-                <h4>Remove</h4>
-              </th>
-              <th>
-                <h4>Product </h4>
-              </th>
-              <th>
-                <h4>Product Name</h4>
-              </th>
-              <th>
-                <h4>Price</h4>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map((e) => (
-              <tr key={e.gameId}>
-                <td className={classes['trash-td']}>
-                  <Image
-                    fluid
-                    onClick={() => {
-                      setGameId(e.gameId);
-                    }}
-                    className={classes['trash-img']}
-                    src={process.env.PUBLIC_URL + '/assets/remove.png'}
-                  ></Image>
-                </td>
-                <td className={classes['image-td']}>
-                  <Image
-                    className={classes.image}
-                    src={e.images[0]?.url || null}
-                  />
-                </td>
-                <td className={classes['text-td']}>
-                  <h4 className={classes['game-text']}>{e.name}</h4>
-                </td>
-                <td className={classes['text-td']}>
-                  <h4 className={classes['game-text']}>{e.price}$</h4>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </Col>
-      <Row>
-        <Col md={8}></Col>
-        <Col md={3}>
-          <Container fluid className={classes['subtraction-container']}>
-            <h4 className={classes['substraction-h41']}>Balance: {balance}</h4>
+      {cart.length > 0 ? (
+        <React.Fragment>
+          <Col md={{ span: 9, offset: 1 }}>
+            <Table
+              striped
+              bordered
+              hover
+              size="md"
+              className={classes['table-product']}
+            >
+              <thead>
+                <tr>
+                  <th>
+                    <h4>Remove</h4>
+                  </th>
+                  <th>
+                    <h4>Product </h4>
+                  </th>
+                  <th>
+                    <h4>Product Name</h4>
+                  </th>
+                  <th>
+                    <h4>Price</h4>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map((e) => (
+                  <tr key={e.gameId}>
+                    <td className={classes['trash-td']}>
+                      <Image
+                        fluid
+                        onClick={() => {
+                          setGameId(e.gameId);
+                        }}
+                        className={classes['trash-img']}
+                        src={process.env.PUBLIC_URL + '/assets/remove.png'}
+                      ></Image>
+                    </td>
+                    <td className={classes['image-td']}>
+                      <Image
+                        className={classes.image}
+                        src={e.images[0]?.url || null}
+                      />
+                    </td>
+                    <td className={classes['text-td']}>
+                      <h4 className={classes['game-text']}>{e.name}</h4>
+                    </td>
+                    <td className={classes['text-td']}>
+                      <h4 className={classes['game-text']}>{e.price}$</h4>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Col>
+          <br></br>
+          <Row>
+            <Col md={8}></Col>
+            <Col md={3}>
+              <Container fluid className={classes['subtraction-container']}>
+                <h4 className={classes['substraction-h41']}>
+                  Balance: {balance}
+                </h4>
 
-            <h4 className={classes['substraction-h4']}>
-              -Total Amount: {totalAmount}
-            </h4>
-            <h4 className={classes['substraction-h41']}>
-              New Balance:{NewBalance}$
-            </h4>
-            <Button onClick={buyGames} className={classes['Buy-Button']}>
-              Buy
-            </Button>
-          </Container>
-        </Col>
-      </Row>
+                <h4 className={classes['substraction-h4']}>
+                  -Total Amount: {totalAmount}
+                </h4>
+                <h4 className={classes['substraction-h41']}>
+                  New Balance:{NewBalance}$
+                </h4>
+                <Button onClick={buyGames} className={classes['Buy-Button']}>
+                  Buy
+                </Button>
+              </Container>
+            </Col>
+          </Row>
+        </React.Fragment>
+      ) : (
+        <Container className={classes['no-items']}>
+          <p>Your cart is empty</p>
+        </Container>
+      )}
     </Container>
   );
 };

@@ -5,3 +5,77 @@
   margin: 2rem auto;
   text-align: center;
 }
+
+.libraryContainer {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  background-color: #383d49;
+  align-items: center;
+  padding-bottom: 2.5rem;
+  border: 2px solid #111317;
+  border-radius: 20px;
+}
+
+.img {
+  height: 25vh;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.header {
+  margin-top: 2vh;
+  background-color: black;
+  width: 95%;
+  margin: auto;
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  height: 5rem;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  letter-spacing: 0.8rem;
+  box-shadow: 3px 3px 20px 3px rgba(255, 215, 0, 0.3) inset;
+}
+
+.gameCard {
+  margin: auto;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  margin-top: 3rem;
+  padding: 1rem;
+  box-shadow: rgba(255, 215, 0, 0.5) 0px 30px 60px -12px inset,
+    rgba(255, 215, 0, 0.5) 0px 18px 36px -18px inset;
+  transition: transform 1s;
+}
+
+.gameCard:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.gameCard button {
+  width: 60%;
+  height: 50%;
+  background: inherit;
+  border: 2px solid;
+  border-color: #ffd700;
+  font: inherit;
+  color: Black;
+}
+
+.gameCard button:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: black;
+  -ms-transform: scale(1.2);
+  /* IE 9 */
+  -webkit-transform: scale(1.2);
+  /* Safari 3-8 */
+  transform: scale(1.2);
+}
+
+.no-games {
+  text-align: center;
+  font-weight: 400;
+  color: white;
+  padding-top: 2.5rem;
+}

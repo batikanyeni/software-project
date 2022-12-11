@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import classes from './Carousel.module.css';
 import Container from 'react-bootstrap/Container';
 
-const HomePageCarousel = () => {
+const HomePageCarousel = (props) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -17,27 +17,15 @@ const HomePageCarousel = () => {
         activeIndex={index}
         onSelect={handleSelect}
       >
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={process.env.PUBLIC_URL + '/assets/cyberpunk-2077.jpg'}
-            alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={process.env.PUBLIC_URL + '/assets/witcher3.jpg'}
-            alt="Second slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={process.env.PUBLIC_URL + '/assets/gta5.jpg'}
-            alt="Third slide"
-          />
-        </Carousel.Item>
+        {props.gameList.slice(0, 3).map((e) => (
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={e.images[0]?.url}
+              alt="First slide"
+            />
+          </Carousel.Item>
+        ))}
       </Carousel>
     </Container>
   );

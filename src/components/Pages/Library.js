@@ -26,23 +26,43 @@ const Library = () => {
         setLibraryId(res.data.libraryId);
       });
   }, []);
+
   return (
-    <Container>
-      <Row>
-        {libraryGames?.map((e) => (
-          <Col md={4} key={e.buyId}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={e.game.images?.[0].url} />
-              <Card.Body>
-                <Card.Title>{e.game.name}</Card.Title>
-                <Card.Text></Card.Text>
-                <Button variant="primary">Download</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+    <div>
+      <br />
+      <Row className={classes['header']}>
+        <h1>LIBRARY</h1>
       </Row>
-    </Container>
+      <Container className={classes['libraryContainer']}>
+        <Row>
+          {libraryGames.length > 0 ? (
+            libraryGames?.map((e) => (
+              <Col md={3} key={e.buyId}>
+                <Card
+                  style={{ width: '18rem' }}
+                  className={classes['gameCard']}
+                >
+                  <Card.Img
+                    className={classes.img}
+                    variant="top"
+                    src={e.game.images?.[0].url}
+                  />
+                  <Card.Body>
+                    <Card.Title>{e.game.name}</Card.Title>
+                    <Card.Text></Card.Text>
+                    <Button variant="primary">Download</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Container fluid className={classes['no-games']}>
+              <p>There Are No Games In Your Library</p>
+            </Container>
+          )}
+        </Row>
+      </Container>
+    </div>
   );
 };
 
