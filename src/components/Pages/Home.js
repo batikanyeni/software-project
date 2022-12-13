@@ -19,7 +19,16 @@ const Home = () => {
   return (
     <React.Fragment>
       <HomePageCarousel gameList={games} />
+      <Container fluid className="banner">
+        <h1>Pay however you want!</h1>
+        <h2>With multiple options</h2>
+      </Container>
+      <br></br>
+
       <PaymentSection />
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
 
       <Container fluid className="main">

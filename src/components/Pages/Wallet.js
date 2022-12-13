@@ -28,7 +28,7 @@ const Wallet = () => {
           })
         );
       });
-  }, [dispatch]);
+  }, [dispatch, token, userId]);
 
   const handleChange = (event) => {
     setEnteredAmount(event.target.value);
@@ -68,10 +68,10 @@ const Wallet = () => {
 
           <Col md={6} className={classes['amountandadd']}>
             <div className={classes['balance']}>
-              <p>
+              <div>
                 Your Balance : <br></br>
                 <div className={classes['amount']}> {balance}$</div>
-              </p>
+              </div>
             </div>
 
             <div className={classes['adding']}>

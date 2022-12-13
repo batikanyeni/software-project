@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import GamePageSlider from '../UI/Carousel/GamePageSlider';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'react-bootstrap/Image';
 import classes from './GamePage.module.css';
 import GamePlayerModal from '../GameComponents/GamePlayerModal';
@@ -117,6 +116,9 @@ const GamePage = () => {
       .then((res) => {
         setCommentId(res.data.commentId);
         setUserComment('');
+      })
+      .catch((err) => {
+        console.log(err.response.data);
       });
   };
 
@@ -163,34 +165,42 @@ const GamePage = () => {
         </Row>
       </Container>
       {isLoggedIn && (
-        <React.Fragment>
-          <Container>
-            <Row>
-              <Col>
-                <input
-                  value={userComment}
-                  onChange={handleComment}
-                  placeholder="Add your comment"
-                ></input>
-              </Col>
-              <Col>
-                <Button onClick={sendComment}>Send Comment</Button>
-              </Col>
-            </Row>
-          </Container>
-        </React.Fragment>
+        <Container fluid className={classes['send-comment-container']}>
+          <input
+            className={classes['comment-input']}
+            value={userComment}
+            type="text"
+            onChange={handleComment}
+            placeholder="Add your comment"
+          ></input>
+
+          <Button className={classes['send-comment-btn']} onClick={sendComment}>
+            Send Comment
+          </Button>
+        </Container>
       )}
+      <Container className={classes['banner']}>Comment Section</Container>
       <Container>
-        {gameInfo.comments?.map((e) => (
-          <Row key={e.commentId}>
-            <Row>
-              <Col>
-                <p>{e.customerDto.mail}</p>
+        {gameInfo.comments?.length > 0 ? (
+          <Row>
+            {gameInfo.comments?.map((e) => (
+              <Col md={6} key={e.commentId}>
+                <div className={classes['comment']}>
+                  <div className={classes['commenter-email']}>
+                    <p className={classes['email']}>{e.customerDto.mail}</p>
+                  </div>
+                  <div className={classes['comment-text']}>
+                    <p>{e.comment}</p>
+                  </div>
+                </div>
               </Col>
-            </Row>
-            <Row>{e.comment}</Row>
+            ))}
           </Row>
-        ))}
+        ) : (
+          <Container className={classes['no-comments']}>
+            <p>There are no comments for this game yet.</p>
+          </Container>
+        )}
       </Container>
     </React.Fragment>
   );
