@@ -13,6 +13,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import classes from './Login.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   let navigate = useNavigate();
@@ -22,12 +24,16 @@ const Login = () => {
     let path = `/`;
     navigate(path);
   };
+ 
+ 
+
   const submitHandler = async (values) => {
     let formData = {
       email: values.email,
       password: values.password,
     };
     let isValid = await userSchema.isValid(formData);
+  
 
     if (isValid) {
       axios
@@ -40,12 +46,16 @@ const Login = () => {
           const userId = res.data.customerDto.customerId;
 
           dispatch(authActions.onLogIn({ token: token, userId: userId }));
+          routeChange();
+        
         })
         .catch((err) => {
           console.log(err.response.data);
+          toast.error('Please check your email or password!');
         });
 
-      routeChange();
+     // routeChange();
+    
     }
   };
 
@@ -58,7 +68,7 @@ const Login = () => {
       onSubmit: submitHandler,
       userSchema,
     });
-
+  
   return (
     <React.Fragment>
       <Form onSubmit={handleSubmit} className={classes.form}>
@@ -90,9 +100,9 @@ const Login = () => {
             isValid={touched.password && !errors.password}
           />
         </Form.Group>
-        <Button className={classes.btn} type="submit">
+        <Button className={classes.btn} type="submit" >
           Submit
-        </Button>
+        </Button><ToastContainer />
       </Form>
       <footer>
         <Container fluid className={classes['main-footer']}>

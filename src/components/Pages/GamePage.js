@@ -10,6 +10,8 @@ import Image from 'react-bootstrap/Image';
 import classes from './GamePage.module.css';
 import GamePlayerModal from '../GameComponents/GamePlayerModal';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GamePage = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -121,7 +123,16 @@ const GamePage = () => {
         console.log(err.response.data);
       });
   };
-
+  const showToastMessage = () => {
+    toast.success('Successfully added to cart!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
+const showToastMessage2 = () => {
+  toast.success('Your comment has been added!', {
+      position: toast.POSITION.TOP_RIGHT
+  });
+};
   return (
     <React.Fragment>
       <GamePlayerModal
@@ -154,9 +165,10 @@ const GamePage = () => {
             </Row>
             <Row className={classes['button-container']}>
               <Container className={classes['button-container']}>
-                <Button disabled={disabled} onClick={addToCart}>
+                <Button disabled={disabled} onClick={function(event){ addToCart(); showToastMessage()}}>
                   Add to Cart
                 </Button>
+                <ToastContainer />
 
                 <Button onClick={() => setModalShow(true)}>Play Demo</Button>
               </Container>
@@ -174,7 +186,7 @@ const GamePage = () => {
             placeholder="Add your comment"
           ></input>
 
-          <Button className={classes['send-comment-btn']} onClick={sendComment}>
+          <Button className={classes['send-comment-btn']} onClick={function(event){ sendComment(); showToastMessage2()}}>
             Send Comment
           </Button>
         </Container>

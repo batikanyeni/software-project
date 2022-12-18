@@ -9,6 +9,8 @@ import Container from 'react-bootstrap/Container';
 import { walletActions } from '../store/wallet';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
   const token = useSelector((state) => state.auth.token);
@@ -76,6 +78,13 @@ const Cart = () => {
         console.log(err.response.data);
       });
   };
+
+  const showToastMessage = () => {
+    toast.success('Transaction successful!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+};
+
   return (
     <Container className={classes['cart-maincontainer']}>
       {cart.length > 0 ? (
@@ -149,9 +158,10 @@ const Cart = () => {
                 <h4 className={classes['substraction-h41']}>
                   New Balance:{NewBalance}$
                 </h4>
-                <Button onClick={buyGames} className={classes['Buy-Button']}>
+                <Button className={classes['Buy-Button']} onClick={function(event){ buyGames(); showToastMessage()}}>
                   Buy
                 </Button>
+                <ToastContainer />
               </Container>
             </Col>
           </Row>

@@ -3,6 +3,8 @@ import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/UI/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
 const NotFound = React.lazy(() => import('./components/Pages/NotFound'));
 const Home = React.lazy(() => import('./components/Pages/Home'));

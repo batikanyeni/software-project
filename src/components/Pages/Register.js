@@ -6,6 +6,8 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = (props) => {
   let navigate = useNavigate();
@@ -22,8 +24,52 @@ const Register = (props) => {
       password: values.password,
       confirmpassword: values.confirmpassword,
     };
+
     let isValid = await userSchema.isValid(formData);
 
+    var sembol = '*|,:<>[]{}`;()@&$#%!+-"/.';
+
+    var sembolvar = false;
+    for (var i = 0; i < formData.password.length; i++) {
+      if (sembol.indexOf(formData.password.charAt(i)) != -1) {
+        sembolvar = true;
+      }
+    }
+    var error = new Array();
+
+    if (formData.email == '' || formData.name == '' || formData.surname == '' || formData.password == '' || formData.confirmpassword == '') {
+      toast.error('Please complate all fields!');
+    }
+    else {
+      if (formData.password != formData.confirmpassword) {
+        error.push('Password does not match!');
+      }
+      else if (formData.password.length < 6) {
+        error.push('Password must be 6 characters or greater!');
+      }
+      else if (formData.password.search(/[a-z]/) < 0) {
+        error.push('Password must contain at least one lowercase letter!');
+      }
+      else if (formData.password.search(/[A-Z]/) < 0) {
+        error.push('Password must contain at least one uppercase letter!');
+      }
+      else if (formData.password.search(/[0-9]/) < 0) {
+        error.push('Password must contain at least one number!');
+      }
+      else if (sembolvar == false)
+        error.push('Password must contain at least one symbol!');
+    }
+    if (error.length > 0) {
+      toast.error(error.join("\n"));
+      return false;
+    }
+    else {
+      if (formData.email && formData.name && formData.surname && formData.password && formData.confirmpassword) {
+        toast.success('User registration successful! Please login.');
+      }
+
+    
+    }
     if (isValid) {
       setConfirmed(true);
       axios
@@ -40,8 +86,13 @@ const Register = (props) => {
         })
         .catch((err) => {
           console.log(err.response.data);
+
         });
-    }
+    } 
+
+  
+
+    
   };
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
     initialValues: {
@@ -54,6 +105,7 @@ const Register = (props) => {
     onSubmit: submitHandler,
     userSchema,
   });
+
   return (
     <>
       <Modal show={props.onShow} onHide={props.onConfirm}>
@@ -115,7 +167,7 @@ const Register = (props) => {
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
-            </Button>
+            </Button><ToastContainer />
           </Form>
         </Modal.Body>
       </Modal>

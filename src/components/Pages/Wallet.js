@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row';
 import classes from './Wallet.module.css';
 import Footer from '../UI/Footer/Footer';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Wallet = () => {
   const token = useSelector((state) => state.auth.token);
   const userId = useSelector((state) => state.auth.userId);
@@ -52,6 +54,9 @@ const Wallet = () => {
         );
         setEnteredAmount(0);
       });
+      toast.success('Successfully added to wallet!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
   };
 
   return (
@@ -83,7 +88,7 @@ const Wallet = () => {
                 value={enteredAmount}
               />
               <br></br>
-              <Button onClick={addAmount}>ADD</Button>
+              <Button onClick={addAmount}>ADD</Button>   <ToastContainer />
             </div>
           </Col>
         </Row>
