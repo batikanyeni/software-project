@@ -24,8 +24,6 @@ const Login = () => {
     let path = `/`;
     navigate(path);
   };
- 
- 
 
   const submitHandler = async (values) => {
     let formData = {
@@ -33,7 +31,6 @@ const Login = () => {
       password: values.password,
     };
     let isValid = await userSchema.isValid(formData);
-  
 
     if (isValid) {
       axios
@@ -47,28 +44,25 @@ const Login = () => {
 
           dispatch(authActions.onLogIn({ token: token, userId: userId }));
           routeChange();
-        
         })
         .catch((err) => {
           console.log(err.response.data);
-          toast.error('Please check your email or password!');
+          toast.error('Please check your email or password!', {
+            autoClose: 1500,
+          });
         });
-
-     // routeChange();
-    
     }
   };
 
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
-    useFormik({
-      initialValues: {
-        email: '',
-        password: '',
-      },
-      onSubmit: submitHandler,
-      userSchema,
-    });
-  
+  const { handleSubmit, handleChange, handleBlur, values } = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: submitHandler,
+    userSchema,
+  });
+
   return (
     <React.Fragment>
       <Form onSubmit={handleSubmit} className={classes.form}>
@@ -81,11 +75,7 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="Enter email"
-            isValid={touched.email && !errors.email}
           />
-          {errors.email && (
-            <Form.Text className="text">${errors.email}</Form.Text>
-          )}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="password">
@@ -97,12 +87,12 @@ const Login = () => {
             name="password"
             type="password"
             placeholder="Password"
-            isValid={touched.password && !errors.password}
           />
         </Form.Group>
-        <Button className={classes.btn} type="submit" >
+        <Button className={classes.btn} type="submit">
           Submit
-        </Button><ToastContainer />
+        </Button>
+        <ToastContainer />
       </Form>
       <footer>
         <Container fluid className={classes['main-footer']}>

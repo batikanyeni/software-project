@@ -27,48 +27,53 @@ const Register = (props) => {
 
     let isValid = await userSchema.isValid(formData);
 
-    var sembol = '*|,:<>[]{}`;()@&$#%!+-"/.';
+    let sembol = '*|,:<>[]{}`;()@&$#%!+-"/.';
 
-    var sembolvar = false;
+    let sembolvar = false;
     for (var i = 0; i < formData.password.length; i++) {
-      if (sembol.indexOf(formData.password.charAt(i)) != -1) {
+      if (sembol.indexOf(formData.password.charAt(i)) !== -1) {
         sembolvar = true;
       }
     }
-    var error = new Array();
+    let error = [];
 
-    if (formData.email == '' || formData.name == '' || formData.surname == '' || formData.password == '' || formData.confirmpassword == '') {
-      toast.error('Please complate all fields!');
-    }
-    else {
-      if (formData.password != formData.confirmpassword) {
+    if (
+      formData.email === '' ||
+      formData.name === '' ||
+      formData.surname === '' ||
+      formData.password === '' ||
+      formData.confirmpassword === ''
+    ) {
+      toast.error('Please complate all fields!', { autoClose: 1500 });
+    } else {
+      if (formData.password !== formData.confirmpassword) {
         error.push('Password does not match!');
-      }
-      else if (formData.password.length < 6) {
+      } else if (formData.password.length < 6) {
         error.push('Password must be 6 characters or greater!');
-      }
-      else if (formData.password.search(/[a-z]/) < 0) {
+      } else if (formData.password.search(/[a-z]/) < 0) {
         error.push('Password must contain at least one lowercase letter!');
-      }
-      else if (formData.password.search(/[A-Z]/) < 0) {
+      } else if (formData.password.search(/[A-Z]/) < 0) {
         error.push('Password must contain at least one uppercase letter!');
-      }
-      else if (formData.password.search(/[0-9]/) < 0) {
+      } else if (formData.password.search(/[0-9]/) < 0) {
         error.push('Password must contain at least one number!');
-      }
-      else if (sembolvar == false)
+      } else if (sembolvar === false)
         error.push('Password must contain at least one symbol!');
     }
     if (error.length > 0) {
-      toast.error(error.join("\n"));
+      toast.error(error.join('\n'), { autoClose: 1500 });
       return false;
-    }
-    else {
-      if (formData.email && formData.name && formData.surname && formData.password && formData.confirmpassword) {
-        toast.success('User registration successful! Please login.');
+    } else {
+      if (
+        formData.email &&
+        formData.name &&
+        formData.surname &&
+        formData.password &&
+        formData.confirmpassword
+      ) {
+        toast.success('User registration successful! Please login.', {
+          autoClose: 1500,
+        });
       }
-
-    
     }
     if (isValid) {
       setConfirmed(true);
@@ -86,15 +91,10 @@ const Register = (props) => {
         })
         .catch((err) => {
           console.log(err.response.data);
-
         });
-    } 
-
-  
-
-    
+    }
   };
-  const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+  const { handleSubmit, handleChange, values } = useFormik({
     initialValues: {
       email: '',
       name: '',
@@ -121,7 +121,6 @@ const Register = (props) => {
                 value={values.email}
                 type="email"
                 placeholder="Enter email"
-                isValid={touched.email && !errors.email}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
@@ -131,7 +130,6 @@ const Register = (props) => {
                 values={values.name}
                 type="name"
                 placeholder="Enter Your Name"
-                isValid={touched.name && !errors.name}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="surname">
@@ -141,7 +139,6 @@ const Register = (props) => {
                 values={values.surname}
                 type="surname"
                 placeholder="Enter Your Surname"
-                isValid={touched.surname && !errors.surname}
               />
             </Form.Group>
 
@@ -152,7 +149,6 @@ const Register = (props) => {
                 values={values.password}
                 type="password"
                 placeholder="Password"
-                isValid={touched.password && !errors.password}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="confirmpassword">
@@ -162,12 +158,12 @@ const Register = (props) => {
                 values={values.confirmpassword}
                 type="password"
                 placeholder="Confirm Password"
-                isValid={touched.confirmpassword && !errors.confirmpassword}
               />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
-            </Button><ToastContainer />
+            </Button>
+            <ToastContainer />
           </Form>
         </Modal.Body>
       </Modal>

@@ -125,14 +125,16 @@ const GamePage = () => {
   };
   const showToastMessage = () => {
     toast.success('Successfully added to cart!', {
-        position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000,
     });
-};
-const showToastMessage2 = () => {
-  toast.success('Your comment has been added!', {
-      position: toast.POSITION.TOP_RIGHT
-  });
-};
+  };
+  const showToastMessage2 = () => {
+    toast.success('Your comment has been added!', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 1000,
+    });
+  };
   return (
     <React.Fragment>
       <GamePlayerModal
@@ -165,7 +167,13 @@ const showToastMessage2 = () => {
             </Row>
             <Row className={classes['button-container']}>
               <Container className={classes['button-container']}>
-                <Button disabled={disabled} onClick={function(event){ addToCart(); showToastMessage()}}>
+                <Button
+                  disabled={disabled}
+                  onClick={function (event) {
+                    addToCart();
+                    showToastMessage();
+                  }}
+                >
                   Add to Cart
                 </Button>
                 <ToastContainer />
@@ -186,7 +194,13 @@ const showToastMessage2 = () => {
             placeholder="Add your comment"
           ></input>
 
-          <Button className={classes['send-comment-btn']} onClick={function(event){ sendComment(); showToastMessage2()}}>
+          <Button
+            className={classes['send-comment-btn']}
+            onClick={function (event) {
+              sendComment();
+              showToastMessage2();
+            }}
+          >
             Send Comment
           </Button>
         </Container>
