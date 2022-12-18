@@ -1,0 +1,63 @@
+.main-header {
+  background-color: black;
+}
+
+.register-button {
+  font: inherit;
+  border: 2px solid white;
+  background: inherit;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+.register-button:hover,
+.register-button:active {
+  background: #ffd700;
+  border-color: #ffd700;
+}
+
+.register-button:focus {
+  outline: none;
+}
+.logout-button {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.logout-button:hover,
+.logout-button:active {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.logout-button:focus {
+  outline: none;
+}
+
+.right-header-box {
+  align-items: center;
+  display: flex;
+}
+.header-icon {
+  width: 2rem;
+  height: 2rem;
+}
+.logo {
+  width: 15%;
+  height: 15%;
+  border-radius: 10px;
+  padding: 0;
+}
+.logo-container {
+  padding: 0;
+}

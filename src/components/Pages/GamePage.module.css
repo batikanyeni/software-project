@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+.Gameimg {
+  align-items: center;
+  display: flex;
+}
+.Gameimg img {
+  width: 20%;
+}
+
+.GameSliderContainer img {
+  width: 25%;
+}
+.GameSliderContainer {
+  height: 50%;
+}
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  margin: 1rem;
+  width: 50%;
+  height: 80%;
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: black;
+}
+.button-container button:hover,
+.button-container button:active {
+  color: black;
+  background-color: #ffd700;
+  border: #ffd700;
+}
+.button-container button:disabled,
+.button-container button:hover:disabled,
+.button-container button:active:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.gameinfo-container {
+  color: white;
+}
+
+.comment {
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-family: Quicksand;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  background: linear-gradient(to bottom right, #d6d3c4 40%, #db834c 100%);
+  transition: transform 1s;
+}
+.comment:hover {
+  transform: skewX(-2.1deg);
+}
+
+.commenter-email {
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: 900;
+  width: 10rem;
+  margin-bottom: 2vh;
+  color: #666666;
+  text-align: center;
+  font-size: 1rem;
+  background-color: azure;
+}
+.email {
+  margin: 2%;
+}
+.send-comment-container {
+  margin-top: 3rem;
+  width: 50%;
+  height: auto;
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 5px;
+}
+.comment-input {
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+.send-comment-btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+.send-comment-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.comment-text {
+  width: 70%;
+  font-size: 1em;
+  text-align: left;
+}
+.banner {
+  width: 100%;
+  margin-top: 2rem;
+  height: 100px;
+  background-color: rgb(6, 6, 33);
+  border: 2px solid black;
+  color: #fff;
+  font-family: 'Bungee Shade', cursive;
+  font-weight: 900;
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.no-comments {
+  color: white;
+  width: auto;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    font-size: 30px;
+  }
+  .comment {
+    width: 90%;
+  }
+  .no-comments {
+    margin-left: 8%;
+  }
+}

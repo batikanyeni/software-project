@@ -1,0 +1,132 @@
+.wallet {
+  width: 90%;
+  max-width: 40rem;
+  padding: 3rem;
+  margin: 2rem auto;
+  text-align: center;
+  height: 100%;
+}
+
+.walletcontainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+  background-color: black;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+}
+
+.balance p {
+  font-size: 30px;
+  color: white;
+}
+
+.balance {
+  border: 5px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(72, 79, 96, 0.5);
+  font: inherit;
+  border: 2px solid white;
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.amount {
+  text-align: center;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  width: 70%;
+  height: 3rem;
+  font: inherit;
+  border: 2px solid #ffd700;
+  color: black;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.adding {
+  border: 5px;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(72, 79, 96, 0.5);
+  font: inherit;
+  border: 2px solid white;
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.adding input {
+  width: 70%;
+  height: 3rem;
+  border-radius: 10px;
+  border-color: black;
+}
+
+.adding button {
+  width: 30%;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50%;
+  background: inherit;
+  border: 2px solid;
+  border-color: #ffd700;
+  font: inherit;
+  color: white;
+}
+
+.adding button:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.paymentimg {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.paymentimg img {
+  margin: auto;
+  padding: 3rem;
+  height: auto;
+  width: 70%;
+}
+
+.amountandadd {
+  margin: auto;
+}
+
+.cards {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+  background-color: black;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+}
+
+.addCard {
+  text-align: center;
+  color: white;
+}
+
+.myCards {
+  text-align: center;
+  color: white;
+}
