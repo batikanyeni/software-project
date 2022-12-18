@@ -44,9 +44,9 @@ const Library = () => {
                   className={classes['gameCard']}
                 >
                   <Card.Img
+                    src={e.game.images?.[0]?.url}
                     className={classes.img}
                     variant="top"
-                    src={e.game.images?.[0]?.url}
                   />
                   <Card.Body>
                     <Card.Title>{e.game.name}</Card.Title>

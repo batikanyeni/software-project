@@ -5,13 +5,13 @@
 
 .card-img {
   height: 35vh;
-  max-width: 100%;
+  width: 100%;
   vertical-align: middle;
 }
 
 .cards_item {
   display: flex;
-  padding: 1rem;
+  padding: 5rem;
   transition: width 1s;
   
 }

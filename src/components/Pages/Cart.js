@@ -22,7 +22,10 @@ const Cart = () => {
   const [gameId, setGameId] = useState('');
   const [cart, setCart] = useState([]);
   const totalAmount = useMemo(() => calculateTotal(cart), [cart]);
-  const NewBalance = balance - totalAmount;
+  const newBalance = useMemo(
+    () => calcNewBalance(balance, totalAmount),
+    [balance, totalAmount]
+  );
 
   useEffect(() => {
     const getCart = () => {
@@ -81,9 +84,9 @@ const Cart = () => {
 
   const showToastMessage = () => {
     toast.success('Transaction successful!', {
-        position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT,
     });
-};
+  };
 
   return (
     <Container className={classes['cart-maincontainer']}>
@@ -155,10 +158,21 @@ const Cart = () => {
                 <h4 className={classes['substraction-h4']}>
                   -Total Amount: {totalAmount}
                 </h4>
-                <h4 className={classes['substraction-h41']}>
-                  New Balance:{NewBalance}$
+                <h4
+                  className={
+                    newBalance < 0
+                      ? classes['substraction-h41-red']
+                      : classes['substraction-h41-green']
+                  }
+                >
+                  New Balance:{newBalance}$
                 </h4>
-                <Button className={classes['Buy-Button']} onClick={function(event){ buyGames(); showToastMessage()}}>
+
+                <Button
+                  disabled={newBalance < 0}
+                  onClick={buyGames}
+                  className={classes['Buy-Button']}
+                >
                   Buy
                 </Button>
                 <ToastContainer />
@@ -182,5 +196,7 @@ const calculateTotal = (arr) => {
   });
   return result;
 };
-
+const calcNewBalance = (balance, totalAmount) => {
+  return balance - totalAmount;
+};
 export default Cart;
