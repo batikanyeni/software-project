@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Table } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '../UI/Footer/Footer';
 
 const Cart = () => {
   const token = useSelector((state) => state.auth.token);
@@ -89,6 +90,7 @@ const Cart = () => {
   };
 
   return (
+    <div>
     <Container className={classes['cart-maincontainer']}>
       {cart.length > 0 ? (
         <React.Fragment>
@@ -185,8 +187,12 @@ const Cart = () => {
           <p>Your cart is empty</p>
         </Container>
       )}
+       
     </Container>
+    <Footer />
+    </div>
   );
+  
 };
 
 const calculateTotal = (arr) => {

@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import classes from './Library.module.css';
+import Footer from '../UI/Footer/Footer';
 
 const Library = () => {
   const token = useSelector((state) => state.auth.token);
@@ -63,6 +64,7 @@ const Library = () => {
           )}
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };

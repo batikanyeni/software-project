@@ -34,7 +34,7 @@
   height: 5rem;
   font-family: 'Lucida Console', 'Courier New', monospace;
   letter-spacing: 0.8rem;
-  box-shadow: 3px 3px 20px 3px rgba(255, 215, 0, 0.3) inset;
+  box-shadow: 3px 3px 20px 3px rgba(255, 145, 0, 0.3) inset;
 }
 
 .gameCard {
@@ -42,8 +42,8 @@
   font-family: 'Lucida Console', 'Courier New', monospace;
   margin-top: 3rem;
   padding: 1rem;
-  box-shadow: rgba(255, 215, 0, 0.5) 0px 30px 60px -12px inset,
-    rgba(255, 215, 0, 0.5) 0px 18px 36px -18px inset;
+  box-shadow: rgba(230, 120, 10, 0.92) 0px 30px 60px -12px inset,
+    rgba(255, 187, 0, 0.866) 0px 18px 36px -18px inset;
   transition: transform 1s;
 }
 
@@ -56,14 +56,14 @@
   height: 50%;
   background: inherit;
   border: 2px solid;
-  border-color: #ffd700;
+  border-color: #f4840c;
   font: inherit;
   color: Black;
 }
 
 .gameCard button:hover {
-  background-color: #ffd700;
-  border-color: #ffd700;
+  background-color: #f4840c;
+  border-color: #f4840c;
   color: black;
   -ms-transform: scale(1.2);
   /* IE 9 */

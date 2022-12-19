@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import GamePageSlider from '../UI/Carousel/GamePageSlider';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import Footer from '../UI/Footer/Footer';
 import classes from './GamePage.module.css';
 import GamePlayerModal from '../GameComponents/GamePlayerModal';
 import axios from 'axios';
@@ -206,7 +207,7 @@ const GamePage = () => {
         </Container>
       )}
       <Container className={classes['banner']}>Comment Section</Container>
-      <Container>
+      <Container className={classes['comments']}>
         {gameInfo.comments?.length > 0 ? (
           <Row>
             {gameInfo.comments?.map((e) => (
@@ -228,6 +229,7 @@ const GamePage = () => {
           </Container>
         )}
       </Container>
+      <Footer />
     </React.Fragment>
   );
 };

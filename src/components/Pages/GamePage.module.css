@@ -22,15 +22,15 @@
   margin: 1rem;
   width: 50%;
   height: 80%;
-  background-color: #ffd700;
-  border-color: #ffd700;
+  background-color: #f4840c;
+  border-color: #f4840c;
   color: black;
 }
 .button-container button:hover,
 .button-container button:active {
   color: black;
-  background-color: #ffd700;
-  border: #ffd700;
+  background-color: #f4840c;
+  border: #f4840c;
 }
 .button-container button:disabled,
 .button-container button:hover:disabled,
@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
-  background: linear-gradient(to bottom right, #d6d3c4 40%, #db834c 100%);
+  background: linear-gradient(to bottom right, #d6d3c4 40%, #f4840c 100%);
   transition: transform 1s;
 }
 .comment:hover {
@@ -115,7 +115,7 @@
   width: 100%;
   margin-top: 2rem;
   height: 100px;
-  background-color: rgb(6, 6, 33);
+  background-color: rgb(0, 0, 0);
   border: 2px solid black;
   color: #fff;
   font-family: 'Bungee Shade', cursive;
@@ -140,4 +140,8 @@
   .no-comments {
     margin-left: 8%;
   }
+}
+
+.comments{
+  margin-bottom: 5rem;
 }

@@ -1,5 +1,6 @@
 .cart-maincontainer {
   display: inline;
+ 
 }
 
 .delete-button {
@@ -31,7 +32,7 @@
 
 .substraction-h41-green {
   text-align: right;
-  color: green;
+  color: #f4840c;
 }
 .substraction-h41-red {
   text-align: right;
@@ -62,13 +63,13 @@
   height: 50%;
   background: inherit;
   border: 2px solid;
-  border-color: #ffd700;
+  border-color: #f4840c;
   font: inherit;
   color: white;
 }
 .Buy-Button:hover {
-  background-color: #ffd700;
-  border-color: #ffd700;
+  background-color: #f4840c;
+  border-color: #f4840c;
 }
 
 .Buy-Button:disabled,

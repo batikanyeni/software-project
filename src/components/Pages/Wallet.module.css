@@ -45,7 +45,7 @@
   width: 70%;
   height: 3rem;
   font: inherit;
-  border: 2px solid #ffd700;
+  border: 2px solid #f4840c;
   color: black;
   border-radius: 10px;
   font-size: 1.2rem;
@@ -86,14 +86,14 @@
   height: 50%;
   background: inherit;
   border: 2px solid;
-  border-color: #ffd700;
+  border-color: #f4840c;
   font: inherit;
   color: rgb(232, 226, 226);
 }
 
 .adding button:hover {
-  background-color: #ffd700;
-  border-color: #ffd700;
+  background-color: #f4840c;
+  border-color: #f4840c;
 }
 
 .paymentimg {
