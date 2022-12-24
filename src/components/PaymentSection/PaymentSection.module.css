@@ -7,14 +7,14 @@
 }
 
 .card-container button {
-  background-color: #ff9d00;
-  border-color: #ff9d00;
+  background-color: #f4840c;
+  border-color: #f4840c;
   color: black;
 }
 .card-container button:hover,
 .card-container button:active {
   background-color: #ffb743;
-  border-color: #ff9d00;
+  border-color: #f4840c;
   color: black;
 }
 .card-img {

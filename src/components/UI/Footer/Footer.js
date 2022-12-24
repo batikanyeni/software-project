@@ -29,7 +29,7 @@ const Footer = () => {
           <Col>
             <Container className={classes['contact-container']}>
               {<h2>Contact Us</h2>}
-              {<h4>Phone: (+90)531 313 3131</h4>}
+              {<h4>Phone: (+90)533 333 3333</h4>}
               {<h4>E-mail: gamehub@outlook.com</h4>}
               {
                 <Link>

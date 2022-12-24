@@ -1,23 +1,22 @@
 .form {
-  width: 90%;
+  width: 80%;
   max-width: 40rem;
   padding: 3rem;
-  margin: 2rem auto;
-  margin-top: 5rem;
+  margin:auto;
   text-align: center;
-  background-color: #323b44;
+  background-color: rgb(60, 60, 60, 0.4);
   border-radius: 10px;
 }
 .btn {
   width: 50%;
   background-color: inherit;
-  border-color: orangered;
+  border-color: #f4840c;
   color: white;
 }
 .btn:hover,
 .btn:active {
-  background-color: #f56734;
-  border-color: #f56734;
+  background-color: #f4840c;
+  border-color: #f4840c;
 }
 .label {
   font-weight: bold;
@@ -26,7 +25,7 @@
 .main-footer {
   text-align: center;
   align-items: center;
-  background-image: linear-gradient(to bottom, #808080, #807c07);
+  background-image: linear-gradient(to bottom, #808080, #f4840c);
 }
 .about-container {
   text-align: center;
@@ -45,4 +44,10 @@
 
   text-align: center;
   border-radius: 10px;
+}
+.loginpage{
+  background-image: url("/public/assets/login_bg.png");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%; 
+  padding:10rem;
 }

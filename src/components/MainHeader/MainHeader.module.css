@@ -1,5 +1,6 @@
 .main-header {
   background-color: black;
+  
 }
 
 .register-button {
@@ -13,8 +14,8 @@
 }
 .register-button:hover,
 .register-button:active {
-  background: #ffd700;
-  border-color: #ffd700;
+  background: #f4840c;
+  border-color: #f4840c;
 }
 
 .register-button:focus {
@@ -53,11 +54,11 @@
   height: 2rem;
 }
 .logo {
-  width: 15%;
-  height: 15%;
-  border-radius: 10px;
+  width:20%;
+  height: 20%;
   padding: 0;
 }
 .logo-container {
   padding: 0;
+
 }

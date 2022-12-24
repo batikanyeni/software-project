@@ -11,6 +11,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Footer from '../UI/Footer/Footer';
 import axios from 'axios';
 import classes from './Login.module.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -64,6 +65,8 @@ const Login = () => {
   });
 
   return (
+    <div>
+    <Row className={classes['loginpage']} >
     <React.Fragment>
       <Form onSubmit={handleSubmit} className={classes.form}>
         <Form.Group className="mb-3" controlId="email">
@@ -94,7 +97,8 @@ const Login = () => {
         </Button>
         <ToastContainer />
       </Form>
-      <footer>
+     
+      {/* <footer>
         <Container fluid className={classes['main-footer']}>
           <Row>
             <Col>
@@ -146,8 +150,13 @@ const Login = () => {
             </Col>
           </Row>
         </Container>
-      </footer>
+      </footer> */}
     </React.Fragment>
+    </Row>
+    <Row>
+    <Footer />
+    </Row>
+    </div>
   );
 };
 

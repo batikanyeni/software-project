@@ -25,10 +25,10 @@
 }
 .submit-button:active {
   width: 100%;
-  background-color: orangered;
+  background-color: #f4840c;
 }
 .close-button {
   margin-left: 23rem;
   padding: 0.3rem 1rem 0.6rem;
-  background-color: orangered;
+  background-color: #f4840c;
 }
