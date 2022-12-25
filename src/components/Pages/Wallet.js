@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import classes from './Wallet.module.css';
-import Footer from '../UI/Footer/Footer';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -94,7 +93,7 @@ const Wallet = () => {
         </Row>
       </Container>
 
-      <Footer />
+
     </div>
   );
 };

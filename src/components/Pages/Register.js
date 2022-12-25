@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import classes from './Register.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -108,23 +109,23 @@ const Register = (props) => {
 
   return (
     <>
-      <Modal show={props.onShow} onHide={props.onConfirm}>
-        <Modal.Header closeButton>
+      <Modal show={props.onShow} onHide={props.onConfirm} >
+        <Modal.Header closeButton >
           <Modal.Title>Create Your Account</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className={classes['body']}>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>E-mail Address</Form.Label>
               <Form.Control
                 onChange={handleChange}
                 value={values.email}
                 type="email"
-                placeholder="Enter email"
+                placeholder="Enter E-mail"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
-              <Form.Label>name</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 onChange={handleChange}
                 values={values.name}
@@ -133,7 +134,7 @@ const Register = (props) => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="surname">
-              <Form.Label>surname</Form.Label>
+              <Form.Label>Surname</Form.Label>
               <Form.Control
                 onChange={handleChange}
                 values={values.surname}
@@ -160,8 +161,8 @@ const Register = (props) => {
                 placeholder="Confirm Password"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="primary" type="submit" className={classes['register']} >
+              Register
             </Button>
             <ToastContainer />
           </Form>

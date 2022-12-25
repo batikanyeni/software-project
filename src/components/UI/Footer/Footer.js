@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer >
       <Container fluid className={classes['main-footer']}>
         <Row>
           <Col>
@@ -30,7 +30,7 @@ const Footer = () => {
             <Container className={classes['contact-container']}>
               {<h2>Contact Us</h2>}
               {<h4>Phone: (+90)533 333 3333</h4>}
-              {<h4>E-mail: gamehub@outlook.com</h4>}
+              {<h4>E-mail: gamehome@outlook.com</h4>}
               {
                 <Link>
                   <Image

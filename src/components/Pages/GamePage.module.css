@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
 .Gameimg {
   align-items: center;
   display: flex;
 }
+
 .Gameimg img {
   width: 20%;
+}
+
+.GameDetail {
+  margin-top: 3rem;
 }
 
 .GameSliderContainer img {
   width: 25%;
 }
+
 .GameSliderContainer {
   height: 50%;
 }
+
 .button-container {
   display: flex;
 }
@@ -26,12 +34,14 @@
   border-color: #f4840c;
   color: black;
 }
+
 .button-container button:hover,
 .button-container button:active {
   color: black;
   background-color: #f4840c;
   border: #f4840c;
 }
+
 .button-container button:disabled,
 .button-container button:hover:disabled,
 .button-container button:active:disabled {
@@ -57,6 +67,7 @@
   background: linear-gradient(to bottom right, #d6d3c4 40%, #f4840c 100%);
   transition: transform 1s;
 }
+
 .comment:hover {
   transform: skewX(-2.1deg);
 }
@@ -72,9 +83,11 @@
   font-size: 1rem;
   background-color: azure;
 }
+
 .email {
   margin: 2%;
 }
+
 .send-comment-container {
   margin-top: 3rem;
   width: 50%;
@@ -83,11 +96,13 @@
   padding: 2rem;
   border-radius: 5px;
 }
+
 .comment-input {
   width: 100%;
   height: 10rem;
   margin-bottom: 1rem;
 }
+
 .send-comment-btn {
   color: #ffffff;
   padding: 0.8rem;
@@ -98,12 +113,13 @@
   display: block;
   width: 100%;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #f4840c;
   background: transparent;
 }
+
 .send-comment-btn:hover {
   background-color: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: #f4840c;
 }
 
 .comment-text {
@@ -111,6 +127,7 @@
   font-size: 1em;
   text-align: left;
 }
+
 .banner {
   width: 100%;
   margin-top: 2rem;
@@ -123,25 +140,36 @@
   font-size: 3rem;
   text-align: center;
   padding-top: 0.5rem;
+  border-radius: 1rem;
 }
+
 .no-comments {
   color: white;
-  width: auto;
+  width: 50%;
   text-align: center;
+  font-size: 1.3rem;
+  border-style: solid;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border-width: 0.5px;
+  border-color: #f4840c;
+
 }
 
 @media (max-width: 600px) {
   .banner {
     font-size: 30px;
   }
+
   .comment {
     width: 90%;
   }
+
   .no-comments {
     margin-left: 8%;
   }
 }
 
-.comments{
+.comments {
   margin-bottom: 5rem;
 }

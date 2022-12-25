@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -8,18 +8,23 @@ import userSchema from '../Validations/LoginValidation';
 import { authActions } from '../store/auth';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Footer from '../UI/Footer/Footer';
 import axios from 'axios';
 import classes from './Login.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Register from '../Pages/Register';
 
 const Login = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const routeChange = () => {
     let path = `/`;
@@ -65,40 +70,70 @@ const Login = () => {
   });
 
   return (
-    <div>
-    <Row className={classes['loginpage']} >
-    <React.Fragment>
-      <Form onSubmit={handleSubmit} className={classes.form}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label className={classes.label}>Email address</Form.Label>
-          <Form.Control
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-            name="email"
-            type="email"
-            placeholder="Enter email"
-          />
-        </Form.Group>
+    <Container fluid>
+      <Row className={classes['loginpage']} >
+        <React.Fragment>
+          {show && (
+            <Register
+              onShow={show}
+              setShow={setShow}
+              onConfirm={handleClose}
+            ></Register>
+          )}
+          <Col md={8} className={classes['loginform']}>
+            <Form onSubmit={handleSubmit} className={classes.form}>
 
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label className={classes.label}>Password</Form.Label>
-          <Form.Control
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Button className={classes.btn} type="submit">
-          Submit
-        </Button>
-        <ToastContainer />
-      </Form>
-     
-      {/* <footer>
+              <Row>
+                <Col md={8} className={classes['form-item']}>
+                  <Form.Group className="mb-3" controlId="email">
+                    <Form.Label className={classes.label}>E-mail</Form.Label>
+                    <Form.Control
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                      name="email"
+                      type="email"
+                      placeholder="E-mail"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={8} className={classes['form-item']}>
+                  <Form.Group className="mb-3" controlId="password">
+                    <Form.Label className={classes.label}>Password</Form.Label>
+                    <Form.Control
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+
+              <Button className={classes.btn} type="submit">
+                Login
+              </Button>
+
+              <div className={classes['dont-have-account']}>
+                <p>Don't have an account?</p>
+                <NavLink
+                  as={Button}
+                  size="lg"
+                  className={classes['create-account']}
+                  onClick={handleShow}
+                >
+                  Create New Account
+                </NavLink>
+              </div>
+              <ToastContainer />
+            </Form>
+          </Col>
+          {/* <footer>
         <Container fluid className={classes['main-footer']}>
           <Row>
             <Col>
@@ -151,12 +186,10 @@ const Login = () => {
           </Row>
         </Container>
       </footer> */}
-    </React.Fragment>
-    </Row>
-    <Row>
-    <Footer />
-    </Row>
-    </div>
+        </React.Fragment>
+      </Row>
+    </Container>
+
   );
 };
 

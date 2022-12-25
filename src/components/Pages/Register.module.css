@@ -6,11 +6,24 @@
   height: 100vh;
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
+
 }
+
+.body {
+  background-color: rgb(60, 60, 60, 0.1);
+}
+
+.register {
+  width: 30%;
+  background-color: #f4840c;
+  border-color: black;
+  color: black;
+}
+
 
 .modal {
   overflow: hidden;
-  background-color: #323b44;
+  background-color: #444432;
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -20,13 +33,16 @@
   display: flex;
   justify-content: center;
 }
+
 .submit-button {
   width: 100%;
 }
+
 .submit-button:active {
   width: 100%;
   background-color: #f4840c;
 }
+
 .close-button {
   margin-left: 23rem;
   padding: 0.3rem 1rem 0.6rem;

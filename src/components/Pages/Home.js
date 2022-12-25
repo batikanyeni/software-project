@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Footer from '../UI/Footer/Footer';
 import HomePageCarousel from '../UI/Carousel/HomePageCarousel';
 import './Home.css';
 import PaymentSection from '../PaymentSection/PaymentSection';
@@ -52,7 +51,6 @@ const Home = () => {
       <br></br>
       <HomeGames gameList={games} />
       <br></br>
-      <Footer />
     </React.Fragment>
   );
 };

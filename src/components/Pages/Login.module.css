@@ -1,33 +1,37 @@
 .form {
-  width: 80%;
-  max-width: 40rem;
+  width: 100%;
   padding: 3rem;
-  margin:auto;
+  margin: auto;
   text-align: center;
   background-color: rgb(60, 60, 60, 0.4);
   border-radius: 10px;
 }
+
 .btn {
   width: 50%;
   background-color: inherit;
   border-color: #f4840c;
   color: white;
 }
+
 .btn:hover,
 .btn:active {
   background-color: #f4840c;
   border-color: #f4840c;
 }
+
 .label {
   font-weight: bold;
   color: white;
 }
-.main-footer {
+
+
+/* .main-footer {
   text-align: center;
   align-items: center;
   background-image: linear-gradient(to bottom, #808080, #f4840c);
-}
-.about-container {
+} */
+/* .about-container {
   text-align: center;
   width: 50%;
 }
@@ -36,18 +40,54 @@
   margin: 3%;
   height: 5%;
   align-items: center;
-}
-.contact-container {
+} */
+/* .contact-container {
   width: 50%;
   max-width: 40rem;
   padding: 3rem;
-
   text-align: center;
   border-radius: 10px;
-}
-.loginpage{
+} */
+
+.loginpage {
   background-image: url("/public/assets/login_bg.png");
   background-repeat: no-repeat, repeat;
-  background-size: 100% 100%; 
-  padding:10rem;
+  background-size: 100% 100%;
+  padding: 10%;
+}
+
+.dont-have-account {
+  margin-top: 2rem;
+  color: white;
+  font-size: large;
+}
+
+.create-account {
+  width: 50%;
+  background-color: inherit;
+  border-color: #f4840c;
+  color: white;
+  font-size: 1rem;
+  border-style: solid;
+  padding: 0.5rem;
+  border-width: 0.1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.create-account:hover,
+.create-account:active {
+  background-color: #f4840c;
+  border-color: #f4840c;
+  color: white;
+  text-decoration: none;
+}
+
+.loginform {
+  margin: auto;
+}
+
+.form-item {
+  text-align: center;
+  margin: auto;
 }

@@ -1,6 +1,10 @@
 .cart-maincontainer {
   display: inline;
+
  
+}
+.cartpage{
+  min-height: 40rem;
 }
 
 .delete-button {

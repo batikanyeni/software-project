@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
+import Footer from './components/UI/Footer/Footer';
 const NotFound = React.lazy(() => import('./components/Pages/NotFound'));
 const Home = React.lazy(() => import('./components/Pages/Home'));
 const Login = React.lazy(() => import('./components/Pages/Login'));
@@ -34,6 +35,7 @@ function App() {
           <Route path="/gamepage/:gameId" element={<GamePage />} />
         </Routes>
       </Suspense>
+      <Footer></Footer>
     </React.Fragment>
   );
 }
