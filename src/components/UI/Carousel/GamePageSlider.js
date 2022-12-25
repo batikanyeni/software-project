@@ -7,7 +7,7 @@ const GamePageSlider = (props) => {
     <Carousel className={classes['gamepageslider']} slide={false}>
       {props.gameInfo.images?.slice(0, 3).map((e) => (
         <Carousel.Item key={e.imageId}>
-          <img className="d-block w-100 " src={e.url} alt="First slide" />
+          <img className="d-block w-100 " src={e.url} alt="slide" />
         </Carousel.Item>
       ))}
     </Carousel>

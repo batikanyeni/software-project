@@ -228,7 +228,6 @@ const GamePage = () => {
           </Container>
         )}
       </Container>
-
     </React.Fragment>
   );
 };

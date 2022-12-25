@@ -6,7 +6,6 @@
   height: 100vh;
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
-
 }
 
 .body {
@@ -14,12 +13,11 @@
 }
 
 .register {
-  width: 30%;
+  width: 100%;
   background-color: #f4840c;
   border-color: black;
   color: black;
 }
-
 
 .modal {
   overflow: hidden;
@@ -34,12 +32,8 @@
   justify-content: center;
 }
 
-.submit-button {
-  width: 100%;
-}
-
-.submit-button:active {
-  width: 100%;
+.register:active,
+.register:hover {
   background-color: #f4840c;
 }
 

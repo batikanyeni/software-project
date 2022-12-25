@@ -109,8 +109,8 @@ const Register = (props) => {
 
   return (
     <>
-      <Modal show={props.onShow} onHide={props.onConfirm} >
-        <Modal.Header closeButton >
+      <Modal show={props.onShow} onHide={props.onConfirm}>
+        <Modal.Header closeButton>
           <Modal.Title>Create Your Account</Modal.Title>
         </Modal.Header>
         <Modal.Body className={classes['body']}>
@@ -161,7 +161,11 @@ const Register = (props) => {
                 placeholder="Confirm Password"
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className={classes['register']} >
+            <Button
+              variant="primary"
+              type="submit"
+              className={classes['register']}
+            >
               Register
             </Button>
             <ToastContainer />

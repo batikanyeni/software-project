@@ -8,6 +8,8 @@
 
 .Gameimg img {
   width: 20%;
+  height: 15vh;
+  border: 2px solid wheat;
 }
 
 .GameDetail {
@@ -153,7 +155,6 @@
   border-radius: 1rem;
   border-width: 0.5px;
   border-color: #f4840c;
-
 }
 
 @media (max-width: 600px) {
