@@ -53,8 +53,15 @@ const Wallet = () => {
         );
         setEnteredAmount(0);
       });
-      toast.success('Successfully added to wallet!', {
-        position: toast.POSITION.TOP_RIGHT
+    toast.success('Successfully added to wallet!', {
+      position: 'bottom-left',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
   };
 
@@ -87,13 +94,14 @@ const Wallet = () => {
                 value={enteredAmount}
               />
               <br></br>
-              <Button onClick={addAmount}>ADD</Button>   <ToastContainer />
+              <Button className={classes['add-btn']} onClick={addAmount}>
+                ADD
+              </Button>
+              <ToastContainer />
             </div>
           </Col>
         </Row>
       </Container>
-
-
     </div>
   );
 };

@@ -6,13 +6,13 @@
   color: black;
 }
 
-.card-container button {
+.card-container a {
   background-color: #f4840c;
   border-color: #f4840c;
   color: black;
 }
-.card-container button:hover,
-.card-container button:active {
+.card-container a:hover,
+.card-container a:active {
   background-color: #ffb743;
   border-color: #f4840c;
   color: black;

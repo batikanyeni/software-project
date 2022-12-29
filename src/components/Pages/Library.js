@@ -6,8 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import classes from './Library.module.css';
-
 
 const Library = () => {
   const token = useSelector((state) => state.auth.token);
@@ -52,7 +52,15 @@ const Library = () => {
                   <Card.Body>
                     <Card.Title>{e.game.name}</Card.Title>
                     <Card.Text></Card.Text>
-                    <Button variant="primary">Download</Button>
+                    <Button variant="primary">
+                      <a
+                        className={classes.link}
+                        href={e.game?.downloadURL}
+                        download
+                      >
+                        Download
+                      </a>
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -64,7 +72,6 @@ const Library = () => {
           )}
         </Row>
       </Container>
-   
     </div>
   );
 };

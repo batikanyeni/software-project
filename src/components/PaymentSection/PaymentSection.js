@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import classes from './PaymentSection.module.css';
+import { Link } from 'react-router-dom';
 
 const PaymentSection = () => {
   return (
@@ -20,7 +21,9 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button variant="primary">Go somewhere</Button>
+            <Button as={Link} to={'/wallet'} variant="primary">
+              Go To Wallet
+            </Button>
           </Card>
         </Col>
         <Col md={4}>
@@ -33,7 +36,9 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button variant="primary">Go somewhere</Button>
+            <Button as={Link} to={'/wallet'} variant="primary">
+              Go To Wallet
+            </Button>
           </Card>
         </Col>
         <Col md={4}>
@@ -46,7 +51,9 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button variant="primary">Go somewhere</Button>
+            <Button as={Link} to={'/wallet'} variant="primary">
+              Go To Wallet
+            </Button>
           </Card>
         </Col>
       </Row>

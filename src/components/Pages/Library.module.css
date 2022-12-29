@@ -20,7 +20,14 @@
   max-width: 100%;
   vertical-align: middle;
 }
-
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover,
+.link:active {
+  color: black;
+}
 .header {
   margin-top: 2vh;
   background-color: black;

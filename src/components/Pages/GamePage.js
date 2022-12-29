@@ -125,14 +125,26 @@ const GamePage = () => {
   };
   const showToastMessage = () => {
     toast.success('Successfully added to cart!', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000,
+      position: 'bottom-left',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
   };
   const showToastMessage2 = () => {
     toast.success('Your comment has been added!', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000,
+      position: 'bottom-left',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
     });
   };
   return (
@@ -168,6 +180,7 @@ const GamePage = () => {
             <Row className={classes['button-container']}>
               <Container className={classes['button-container']}>
                 <Button
+                  className={classes['container-button']}
                   disabled={disabled}
                   onClick={function (event) {
                     addToCart();
@@ -178,7 +191,12 @@ const GamePage = () => {
                 </Button>
                 <ToastContainer />
 
-                <Button onClick={() => setModalShow(true)}>Play Demo</Button>
+                <Button
+                  className={classes['container-button']}
+                  onClick={() => setModalShow(true)}
+                >
+                  Play Demo
+                </Button>
               </Container>
             </Row>
           </Col>

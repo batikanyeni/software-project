@@ -72,7 +72,14 @@ const Register = (props) => {
         formData.confirmpassword
       ) {
         toast.success('User registration successful! Please login.', {
+          position: 'bottom-left',
           autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
         });
       }
     }

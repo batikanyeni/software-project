@@ -28,7 +28,7 @@
   display: flex;
 }
 
-.button-container button {
+.container-button {
   margin: 1rem;
   width: 50%;
   height: 80%;
@@ -37,16 +37,16 @@
   color: black;
 }
 
-.button-container button:hover,
-.button-container button:active {
+.container-button:hover,
+.container-button:active {
   color: black;
   background-color: #f4840c;
   border: #f4840c;
 }
 
-.button-container button:disabled,
-.button-container button:hover:disabled,
-.button-container button:active:disabled {
+.container-button:disabled,
+.container-button:hover:disabled,
+.container-button:active:disabled {
   background: #ccc;
   border-color: #ccc;
   color: #666666;
