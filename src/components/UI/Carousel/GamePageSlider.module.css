@@ -4,3 +4,11 @@
 .gamepageslideritem {
   height: 50%;
 }
+.carousel-item {
+  height: 70vh;
+}
+@media screen and (max-width: 1500px) {
+  .carousel-item {
+    height: auto;
+  }
+}
