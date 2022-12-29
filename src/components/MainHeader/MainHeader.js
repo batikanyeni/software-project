@@ -131,7 +131,7 @@ const MainHeader = () => {
                     className={`${classes['logout-button']}`}
                     onClick={logoutHandler}
                   >
-                    Log-out
+                    Logout
                   </Nav.Link>
                 </Nav>
               )}

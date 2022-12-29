@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/UI/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ToastContainer, toast } from 'react-toastify';
+import ScrollToTop from './components/UI/ScrollToTop';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
 import Footer from './components/UI/Footer/Footer';
@@ -25,15 +25,17 @@ function App() {
     <React.Fragment>
       <MainHeader></MainHeader>
       <Suspense fallback={<Spinner />}>
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />,
-          {isLoggedIn && <Route path="/library" element={<Library />} />}
-          {isLoggedIn && <Route path="/wallet" element={<Wallet />} />}
-          {isLoggedIn && <Route path="/cart" element={<Cart />} />}
-          <Route path="/gamepage/:gameId" element={<GamePage />} />
-        </Routes>
+        <ScrollToTop>
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />,
+            {isLoggedIn && <Route path="/library" element={<Library />} />}
+            {isLoggedIn && <Route path="/wallet" element={<Wallet />} />}
+            {isLoggedIn && <Route path="/cart" element={<Cart />} />}
+            <Route path="/gamepage/:gameId" element={<GamePage />} />
+          </Routes>
+        </ScrollToTop>
       </Suspense>
       <Footer></Footer>
     </React.Fragment>

@@ -8,7 +8,7 @@ import userSchema from '../Validations/LoginValidation';
 import { authActions } from '../store/auth';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -54,7 +54,14 @@ const Login = () => {
         .catch((err) => {
           console.log(err.response.data);
           toast.error('Please check your email or password!', {
+            position: 'bottom-left',
             autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
           });
         });
     }
@@ -71,7 +78,7 @@ const Login = () => {
 
   return (
     <Container fluid>
-      <Row className={classes['loginpage']} >
+      <Row className={classes['loginpage']}>
         <React.Fragment>
           {show && (
             <Register
@@ -82,7 +89,6 @@ const Login = () => {
           )}
           <Col md={8} className={classes['loginform']}>
             <Form onSubmit={handleSubmit} className={classes.form}>
-
               <Row>
                 <Col md={8} className={classes['form-item']}>
                   <Form.Group className="mb-3" controlId="email">
@@ -189,7 +195,6 @@ const Login = () => {
         </React.Fragment>
       </Row>
     </Container>
-
   );
 };
 

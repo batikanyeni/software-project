@@ -8,20 +8,18 @@ import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
   return (
-    <footer >
+    <footer>
       <Container fluid className={classes['main-footer']}>
         <Row>
           <Col>
             <Container className={classes['about-container']}>
-              {<h1>About us</h1>} Lorem ipsum odor amet, consectetuer adipiscing
-              elit. Ac purus in massa egestas mollis varius; dignissim
-              elementum. Mollis tincidunt mattis hendrerit dolor eros enim, nisi
-              ligula ornare. Hendrerit parturient habitant pharetra rutrum
-              gravida porttitor eros feugiat. Mollis elit sodales taciti duis
-              praesent id. Consequat urna vitae morbi nunc congue.
-            </Container>
-            <Container>
-              <p></p>
+              {<h1>About us</h1>}
+              {
+                <h5>
+                  We are a small and ambitious development team from Eskisehir
+                  Technical University.
+                </h5>
+              }
             </Container>
           </Col>
         </Row>

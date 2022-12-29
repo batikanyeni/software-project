@@ -61,7 +61,16 @@ const Register = (props) => {
         error.push('Password must contain at least one symbol!');
     }
     if (error.length > 0) {
-      toast.error(error.join('\n'), { autoClose: 1500 });
+      toast.error(error.join('\n'), {
+        position: 'bottom-left',
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
       return false;
     } else {
       if (
@@ -98,7 +107,7 @@ const Register = (props) => {
           routeChange();
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
         });
     }
   };
