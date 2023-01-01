@@ -205,13 +205,13 @@ const GamePage = () => {
       </Container>
       {isLoggedIn && (
         <Container fluid className={classes['send-comment-container']}>
-          <input
+          <textarea
             className={classes['comment-input']}
             value={userComment}
             type="text"
             onChange={handleComment}
             placeholder="Add your comment"
-          ></input>
+          ></textarea>
 
           <Button
             className={classes['send-comment-btn']}

@@ -4,6 +4,7 @@ import classes from './GamePlayerModal.module.css';
 import Countdown from 'react-countdown';
 
 const GamePlayerModal = (props) => {
+  let timeOut;
   const renderer = ({ minutes, seconds }) => {
     return (
       <span>
@@ -12,14 +13,13 @@ const GamePlayerModal = (props) => {
     );
   };
   useEffect(() => {
-    setTimeout(() => {
-      console.log('timer start');
+    timeOut = setTimeout(() => {
       props.displaySetter(false);
     }, 60000);
     return () => {
-      console.log('finished');
+      clearTimeout(timeOut);
     };
-  }, []);
+  }, [props]);
   return (
     <Modal
       {...props}
@@ -40,7 +40,11 @@ const GamePlayerModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className={classes.body}>
-        <iframe src={props.url} className={classes['game-player']}></iframe>
+        <iframe
+          title="GameFrame"
+          src={props.url}
+          className={classes['game-player']}
+        ></iframe>
       </Modal.Body>
     </Modal>
   );
