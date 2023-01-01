@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const GamePage = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const token = useSelector((state) => state.auth.token);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const userId = useSelector((state) => state.auth.userId);
   const [commentId, setCommentId] = useState('');
   const [disabled, setDisabled] = useState(false);
@@ -153,6 +153,7 @@ const GamePage = () => {
         url={gameInfo.url}
         show={modalShow}
         onHide={() => setModalShow(false)}
+        displaySetter={setModalShow}
       />
       <Container className={classes['GameDetail']}>
         <Row>

@@ -6,7 +6,7 @@ import PaymentSection from '../PaymentSection/PaymentSection';
 import HomeGames from '../GameComponents/HomeGames';
 import { Container } from 'react-bootstrap';
 
-const Home = () => {
+const Home = (props) => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Home = () => {
       </Container>
       <br></br>
 
-      <PaymentSection />
+      <PaymentSection isLoggedIn={props.isLoggedIn} />
       <br></br>
       <br></br>
       <br></br>

@@ -28,7 +28,7 @@ function App() {
         <ScrollToTop>
           <Routes>
             <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
             <Route path="/login" element={<Login />} />,
             {isLoggedIn && <Route path="/library" element={<Library />} />}
             {isLoggedIn && <Route path="/wallet" element={<Wallet />} />}

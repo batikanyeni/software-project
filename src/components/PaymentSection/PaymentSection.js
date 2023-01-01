@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import classes from './PaymentSection.module.css';
 import { Link } from 'react-router-dom';
 
-const PaymentSection = () => {
+const PaymentSection = (props) => {
   return (
     <Container className={classes['card-container']}>
       <Row>
@@ -21,8 +21,15 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button as={Link} to={'/wallet'} variant="primary">
-              Go To Wallet
+
+            <Button
+              as={Link}
+              to={!props.isLoggedIn ? '/login' : '/wallet'}
+              variant="primary"
+            >
+              {!props.isLoggedIn
+                ? 'Login to enter your wallet'
+                : 'Go To Wallet'}
             </Button>
           </Card>
         </Col>
@@ -36,8 +43,14 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button as={Link} to={'/wallet'} variant="primary">
-              Go To Wallet
+            <Button
+              as={Link}
+              to={!props.isLoggedIn ? '/login' : '/wallet'}
+              variant="primary"
+            >
+              {!props.isLoggedIn
+                ? 'Login to enter your wallet'
+                : 'Go To Wallet'}
             </Button>
           </Card>
         </Col>
@@ -51,8 +64,14 @@ const PaymentSection = () => {
                 className={classes['card-img']}
               />
             </Card.Body>
-            <Button as={Link} to={'/wallet'} variant="primary">
-              Go To Wallet
+            <Button
+              as={Link}
+              to={!props.isLoggedIn ? '/login' : '/wallet'}
+              variant="primary"
+            >
+              {!props.isLoggedIn
+                ? 'Login to enter your wallet'
+                : 'Go To Wallet'}
             </Button>
           </Card>
         </Col>
