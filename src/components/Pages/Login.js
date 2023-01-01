@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Image from 'react-bootstrap/Image';
+
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+
 import userSchema from '../Validations/LoginValidation';
 import { authActions } from '../store/auth';
 import { useDispatch } from 'react-redux';

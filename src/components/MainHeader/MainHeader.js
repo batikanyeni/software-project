@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import classes from './MainHeader.module.css';
 import Register from '../Pages/Register';
 import Image from 'react-bootstrap/Image';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { Link, useNavigate } from 'react-router-dom';
 

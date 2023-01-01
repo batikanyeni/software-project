@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 import classes from './Library.module.css';
 
 const Library = () => {
@@ -28,6 +29,7 @@ const Library = () => {
     };
     getLibrary();
   }, [token, userId]);
+  console.log(libraryGames);
 
   return (
     <div>
@@ -44,11 +46,14 @@ const Library = () => {
                   style={{ width: '18rem' }}
                   className={classes['gameCard']}
                 >
-                  <Card.Img
-                    src={e.game.images?.[0]?.url}
-                    className={classes.img}
-                    variant="top"
-                  />
+                  <Link to={`/gamepage/${e.game?.gameId}`}>
+                    <Card.Img
+                      src={e.game.images?.[0]?.url}
+                      className={classes.img}
+                      variant="top"
+                    />
+                  </Link>
+
                   <Card.Body>
                     <Card.Title>{e.game.name}</Card.Title>
                     <Card.Text></Card.Text>
