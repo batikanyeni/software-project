@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { authActions } from '../store/auth';
+import { walletActions } from '../store/wallet';
 import { useSelector, useDispatch } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
@@ -27,6 +28,7 @@ const MainHeader = () => {
 
   const logoutHandler = () => {
     dispatch(authActions.onLogOut());
+    dispatch(walletActions.walletOnLogOut());
     routeChange();
   };
 

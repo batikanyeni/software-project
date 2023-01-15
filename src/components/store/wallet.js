@@ -12,6 +12,9 @@ const walletSlice = createSlice({
       state.walletBalance = action.payload.walletBalance;
       localStorage.setItem('walletBalance', state.walletBalance);
     },
+    walletOnLogOut() {
+      localStorage.removeItem('walletBalance');
+    },
   },
 });
 

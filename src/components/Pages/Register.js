@@ -45,7 +45,16 @@ const Register = (props) => {
       formData.password === '' ||
       formData.confirmpassword === ''
     ) {
-      toast.error('Please complate all fields!', { autoClose: 1500 });
+      toast.error('Please complate all fields!', {
+        position: 'bottom-left',
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
     } else {
       if (formData.password !== formData.confirmpassword) {
         error.push('Password does not match!');

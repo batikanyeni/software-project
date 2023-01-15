@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
@@ -16,7 +16,6 @@ const Cart = () => {
   const token = useSelector((state) => state.auth.token);
   const userId = useSelector((state) => state.auth.userId);
   const balance = useSelector((state) => state.wallet.walletBalance);
-  const firstUpdate = useRef(true);
   const [gameRemoved, setGameRemoved] = useState(false);
   const dispatch = useDispatch();
   const [gameId, setGameId] = useState('');
@@ -42,10 +41,6 @@ const Cart = () => {
   }, [gameRemoved, token, userId]);
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
     const deleteCartItem = () => {
       axios
         .delete(
@@ -64,7 +59,9 @@ const Cart = () => {
           setGameRemoved(true);
         });
     };
-    deleteCartItem();
+    if (gameId !== '') {
+      deleteCartItem();
+    }
   }, [gameId, token, userId]);
 
   const buyGames = () => {
